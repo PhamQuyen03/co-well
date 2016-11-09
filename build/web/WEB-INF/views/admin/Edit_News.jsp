@@ -367,6 +367,10 @@
                             <textarea class="myTextarea" name="contents">${requestScope.detail.contents}</textarea>
                         </div><br>
                         <div class="form-group">
+                            <label style="font-size:  15pt; align-content: center;">Image</label>
+                            <input class="form-control" name="img" value="${requestScope.detail.img}" type="text" style="text-align: center;font-size: 15pt;width: 400px">
+                        </div><br>
+                        <div class="form-group">
                             <label style="font-size:  15pt; align-content: center;">Author</label>
                             <input class="form-control" name="author" type="text" value="${requestScope.detail.author}" style="text-align: center;font-size: 15pt;width: 200px">
                         </div><br>

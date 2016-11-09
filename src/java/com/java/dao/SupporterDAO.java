@@ -38,12 +38,13 @@ public class SupporterDAO {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String content = rs.getString("contents");
+                String img = rs.getString("image");
                 String author = rs.getString("AUTHOR");
                 Date create_at = rs.getDate("create_at");
                 Date update_at = rs.getDate("update_at");
                 int status = rs.getInt("status");
                 int id = rs.getInt("id");
-                News n = new News(id, id_category, title, description, content, author, create_at, update_at, status);
+                News n = new News(id, id_category, title, description, content, img, author, create_at, update_at, status);
                 ns.add(n);
             }
             con.close();
@@ -68,12 +69,13 @@ public class SupporterDAO {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String content = rs.getString("contents");
+                String img = rs.getString("image");
                 String author = rs.getString("AUTHOR");
                 Date create_at = rs.getDate("create_at");
                 Date update_at = rs.getDate("update_at");
                 int status = rs.getInt("status");
                 int id = rs.getInt("id");
-                News n = new News(id, id_category, title, description, content, author, create_at, update_at, status);
+                News n = new News(id, id_category, title, description, content, img, author, create_at, update_at, status);
                 ns.add(n);
             }
             con.close();
@@ -85,6 +87,36 @@ public class SupporterDAO {
         return ns;
     }
 
+    public List<News> paginationNews(int page, int num) {
+        List<News> ns = new ArrayList<>();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            String sql = "SELECT * FROM NEWS ORDER BY ID DESC OFFSET "+ page*3 +" ROWS FETCH NEXT "+ num +" ROWS ONLY ";
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                int id_category = rs.getInt("id_category");
+                String title = rs.getString("title");
+                String description = rs.getString("description");
+                String content = rs.getString("contents");
+                String img = rs.getString("image");
+                String author = rs.getString("AUTHOR");
+                Date create_at = rs.getDate("create_at");
+                Date update_at = rs.getDate("update_at");
+                int status = rs.getInt("status");
+                int id = rs.getInt("id");
+                News n = new News(id, id_category, title, description, content, img, author, create_at, update_at, status);
+                ns.add(n);
+            }
+            con.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SupporterDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SupporterDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ns;
+    }
+    
     public News findNewsById(int id) {
         News n = new News();
         try {
@@ -97,11 +129,12 @@ public class SupporterDAO {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String content = rs.getString("contents");
+                String img = rs.getString("image");
                 String author = rs.getString("AUTHOR");
                 Date create_at = rs.getDate("create_at");
                 Date update_at = rs.getDate("update_at");
                 int status = rs.getInt("status");
-                n = new News(id, id_category, title, description, content, author, create_at, update_at, status);
+                n = new News(id, id_category, title, description, content, img, author, create_at, update_at, status);
 
             }
             con.close();
@@ -122,12 +155,13 @@ public class SupporterDAO {
                 int id_category = rs.getInt("id_category");
                 String description = rs.getString("description");
                 String content = rs.getString("contents");
+                String img = rs.getString("image");
                 String author = rs.getString("AUTHOR");
                 Date create_at = rs.getDate("create_at");
                 Date update_at = rs.getDate("update_at");
                 int status = rs.getInt("status");
                 int id = rs.getInt("id");
-                n = new News(id, id_category, title, description, content, author, create_at, update_at, status);
+                n = new News(id, id_category, title, description, content, img,  author, create_at, update_at, status);
 
             }
             con.close();
@@ -137,7 +171,7 @@ public class SupporterDAO {
         return n;
     }
 
-    public boolean insertNews(int id_cate, String title, String img, String des, String contents, String author, Date create_at, Date update_at, int Status) {
+    public boolean insertNews(int id_cate, String title, String des, String contents, String img, String author, Date create_at, Date update_at, int Status) {
 
         try {
             Connection con = ConnectDB.Connected();
@@ -152,7 +186,7 @@ public class SupporterDAO {
         return false;
     }
 
-    public boolean updateNews(int id, int id_category, String title, String img, String des, String content, String author, Date create_at, Date update_at, int Status) {
+    public boolean updateNews(int id, int id_category, String title, String des, String content, String img, String author, Date create_at, Date update_at, int Status) {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();

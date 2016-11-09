@@ -54,18 +54,18 @@ public class HomeController {
 
     @RequestMapping(value = "/support", method = RequestMethod.POST)
     public String insertNews(@RequestParam("id_category") int id_category, @RequestParam("title") String title, @RequestParam("description") String des, @RequestParam("contents") String contents,
-            @RequestParam("author") String author, @RequestParam("create_at") Date create_at, @RequestParam("update_at") Date update_at,
+            @RequestParam("img") String img, @RequestParam("author") String author, @RequestParam("create_at") Date create_at, @RequestParam("update_at") Date update_at,
             @RequestParam("status") int status, Model model) {
-        sp.insertNews(id_category, title, "img", des, contents, author, create_at, update_at, status);
+        sp.insertNews(id_category, title, des, contents, img, author, create_at, update_at, status);
         return "redirect:/support";
     }
 
     @RequestMapping(value = "/support/{id}", method = RequestMethod.POST)
     public String update(@RequestParam("id") int id, @RequestParam("id_category") int id_category, @RequestParam("description") String des, @RequestParam("title") String title, @RequestParam("contents") String content,
-            @RequestParam("author") String author, @RequestParam("create_at") Date create_at, @RequestParam("update_at") Date update_at,
+            @RequestParam("img") String img, @RequestParam("author") String author, @RequestParam("create_at") Date create_at, @RequestParam("update_at") Date update_at,
             @RequestParam("status") int status, Model model) {
 
-        sp.updateNews(id, id_category, title, "img", des, content, author, update_at, update_at, status);
+        sp.updateNews(id, id_category, title, des, content, img, author, update_at, update_at, status);
         List<News> news = sp.getAllNewsPosted();
         model.addAttribute("news", news);
         return "redirect:/support";
@@ -80,9 +80,9 @@ public class HomeController {
 
     @RequestMapping(value = "/support/recruitment", method = RequestMethod.GET)
     public String displayRec(Model model) {
-        List<Recruitment> recs = sp.paginationRec(0, 1);
+        List<Recruitment> recs = sp.paginationRec(0, 4);
         List<Recruitment> recNum = sp.getRecruitment();
-        model.addAttribute("numPage", recNum.size());
+        model.addAttribute("numPage", recNum.size()/5);
         model.addAttribute("recs", recs);
         return "admin/Recruitment";
     }
@@ -113,10 +113,11 @@ public class HomeController {
     @RequestMapping(value = "/support/recruitment/page/{page}", method = RequestMethod.GET)
     public String paginationRec(@PathVariable("page") int page, Model model) {
 
-        List<Recruitment> recs = sp.paginationRec(page * 1, 1);
+        List<Recruitment> recs = sp.paginationRec(page * 4, 4);
         List<Recruitment> recNum = sp.getRecruitment();
+        int num = recNum.size()/5;
         model.addAttribute("recs", recs);
-        model.addAttribute("numPage", recNum.size());
+        model.addAttribute("numPage", num);
         return "admin/Recruitment";
     }
 

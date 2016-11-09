@@ -3,18 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Edit_About.jsp</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/About.jsp</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/index.jsp</file>
             <file>file:/D:/class/java/baitap/src/java/com/java/dao/SupporterDAO.java</file>
+            <file>file:/D:/class/java/baitap/src/java/com/java/model/News.java</file>
             <file>file:/D:/class/java/baitap/src/java/com/java/controller/HomeController.java</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Edit_User.jsp</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Admin.jsp</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Edit_News.jsp</file>
-            <file>file:/D:/class/java/baitap/src/java/com/java/model/About.java</file>
-            <file>file:/D:/class/java/baitap/src/java/com/java/controller/AdminController.java</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Supporter.jsp</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/Edit_Recruitment.jsp</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/admin/LoadUserAjax.jsp</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/News.jsp</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/Recruitment.jsp</file>
+            <file>file:/D:/class/java/baitap/web/resources/clients/js/owl.carousel.min.js</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/clients/layout.tag</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/layout.tag</file>
+            <file>file:/D:/class/java/baitap/src/java/com/java/controller/ClientController.java</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/clients/header.tag</file>
         </group>
     </open-files>
 </project-private>

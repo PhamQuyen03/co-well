@@ -18,6 +18,7 @@ public class News {
     private String title;
     private String description;
     private String contents;
+    private String img;
     private String author;
     private Date create_at;
     private Date update_at;
@@ -26,12 +27,13 @@ public class News {
     public News() {
     }
 
-    public News(int id, int id_category, String title, String description, String contents, String author, Date create_at, Date update_at, int status) {
+    public News(int id, int id_category, String title, String description, String contents, String img, String author, Date create_at, Date update_at, int status) {
         this.id = id;
         this.id_category = id_category;
         this.title = title;
         this.description = description;
         this.contents = contents;
+        this.img = img;
         this.author = author;
         this.create_at = create_at;
         this.update_at = update_at;
@@ -44,6 +46,14 @@ public class News {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public int getId_category() {

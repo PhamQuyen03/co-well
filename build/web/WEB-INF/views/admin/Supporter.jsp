@@ -384,6 +384,10 @@
                                                 <textarea class="myTextarea" name="contents"></textarea>
                                             </div><br>
                                             <div class="form-group">
+                                                <label style="font-size:  15pt; align-content: center;">Image</label>
+                                                <input class="form-control" name="img" type="text" style="text-align: center;font-size: 15pt;width: 400px">
+                                            </div><br>
+                                            <div class="form-group">
                                                 <label style="font-size:  15pt; align-content: center;">Author</label>
                                                 <input class="form-control" name="author" type="text" style="text-align: center;font-size: 15pt;width: 200px">
                                             </div><br>
@@ -420,10 +424,7 @@
                                                             <th style="text-align: center">TITLE</th>
                                                             <th style="text-align: center">DESCRIPTION</th>
                                                             <th style="text-align: center">CONTENT</th>
-                                                            <th style="text-align: center">AUTHOR</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">UPDATE_AT</th>
-                                                            <th style="text-align: center">STATUS</th>
+                                                            
                                                             <th style="text-align: center" >EDIT</th>
                                                             <th style="text-align: center" >DELETE</th>
 
@@ -436,10 +437,7 @@
                                                                 <td><c:out value="${ns.title}"/></td>
                                                                 <td><c:out value="${ns.description}"/></td>
                                                                 <td><c:out escapeXml="false" value="${ns.contents}"/></td>
-                                                                <td><c:out value="${ns.author}"/></td>
-                                                                <td><c:out value="${ns.create_at}"/></td>
-                                                                <td><c:out value="${ns.update_at}"/></td>
-                                                                <td><c:out value="${ns.status}"/></td>
+                                                                
                                                                 <td><a href="support/<c:out value="${ns.id}"/>">Edit</a></td>
                                                                 <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="DELETE"></td>
 
@@ -464,10 +462,6 @@
                                                             <th style="text-align: center">TITLE</th>
                                                             <th style="text-align: center">DESCRIPTION</th>
                                                             <th style="text-align: center">CONTENT</th>
-                                                            <th style="text-align: center">AUTHOR</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">UPDATE_AT</th>
-                                                            <th style="text-align: center">STATUS</th>
                                                             <th style="text-align: center" >EDIT</th>
                                                             <th style="text-align: center" >DELETE</th>
 
@@ -480,14 +474,11 @@
                                                                 <td><c:out value="${ns.title}"/></td>
                                                                 <td><c:out escapeXml="false" value="${ns.description}"/></td>
                                                                 <td><c:out escapeXml="false" value="${ns.contents}"/></td>
-                                                                <td><c:out value="${ns.author}"/></td>
-                                                                <td><c:out value="${ns.create_at}"/></td>
-                                                                <td><c:out value="${ns.update_at}"/></td>
-                                                                <td><c:out value="${ns.status}"/></td>
                                                                 <td><a href="support/<c:out value="${ns.id}"/>">Edit</a></td>
                                                                 <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="DELETE"></td>
                                                             </tr>
                                                         </c:forEach>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
