@@ -20,12 +20,11 @@ public class Contact {
     private String branch;
     private Date create_at;
     private Date update_at;
-    private int status;
 
     public Contact() {
     }
 
-    public Contact(int id, String name, String company, String email, String phone, String branch, Date create_at, Date update_at, int status) {
+    public Contact(int id, String name, String company, String email, String phone, String branch, Date create_at, Date update_at) {
         this.id = id;
         this.name = name;
         this.company = company;
@@ -34,15 +33,6 @@ public class Contact {
         this.branch = branch;
         this.create_at = create_at;
         this.update_at = update_at;
-        this.status = status;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 
     public int getId() {

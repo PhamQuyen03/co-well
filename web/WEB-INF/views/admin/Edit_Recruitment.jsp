@@ -353,48 +353,52 @@
                 <!-- /.row -->
                 <div class="panel-body">
                     <form method="post" action="http://localhost:8084/baitap/support/recruitment/<c:out value="${requestScope.recEdit.id}"></c:out>">
-                        <div class="form-group">
-                            <label style="font-size:  15pt; align-content: center;">Tên</label>
-                            <input class="form-control" name="nameRec" type="text" value="<c:out value="${requestScope.recEdit.name}"></c:out>" style="text-align: center;font-size: 15pt;width: 600px">
-                        </div><br>
-                        <div class="form-group">
-                            <label for="Header">Mô Tả</label><br>
-                            <textarea class="myTextarea" name="descriptionRec"><c:out value="${requestScope.recEdit.description}"></c:out></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <label for="Header">Yêu cầu</label><br>
-                            <textarea class="myTextarea" name="requirementRec"><c:out value="${requestScope.recEdit.requirement}"></c:out></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <label for="Header">Quyền lợi</label><br>
-                            <textarea class="myTextarea" name="interestRec"><c:out value="${requestScope.recEdit.interest}"></c:out></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <label style="font-size:  15pt; align-content: center;">Địa Chỉ</label>
-                            <input class="form-control" name="addressRec" value="<c:out value="${requestScope.recEdit.address}"></c:out>" type="text" style="text-align: center;font-size: 15pt;width: 600px">
-                        </div><br>
-                        <div style="left: 950px; position: absolute;top: 200px; width: 300px">
-                            <div>
-                                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_atRc" value="<c:out value="${requestScope.recEdit.create_at}"></c:out>"/><br>
-                            <label>Ngày Nhận</label>: <input style="margin-left: 22px" type="date" name="start_recruitmentRec" value="<c:out value="${requestScope.recEdit.start_recruitment}"></c:out>"/><br><br>
-                            <label>Kết Thúc</label>: <input style="margin-left: 22px" type="date" name="end_recruitmentRec" value="<c:out value="${requestScope.recEdit.end_recruitment}"></c:out>"/><br><br>
-                                <label>Trạng Thái</label> : 
-                                <select style="margin-left: 10px" name="statusRec">
-                                    <option value="2">Đợi Duyệt</option>
-                                </select><br>
+                            <div class="form-group">
+                                <label style="font-size:  15pt; align-content: center;">Tên</label>
+                                <input class="form-control" name="nameRec" type="text" value="<c:out value="${requestScope.recEdit.name}"></c:out>" style="text-align: center;font-size: 15pt;width: 600px">
+                            </div><br>
+                            <div class="form-group">
+                                <label for="Header">Tóm Tắt</label><br>
+                                <textarea class="form-control" name="summary" rows="3" style="width: 600px"><c:out value="${requestScope.recEdit.summary}"></c:out></textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="Header">Mô Tả</label><br>
+                                <textarea class="myTextarea" name="descriptionRec"><c:out value="${requestScope.recEdit.description}"></c:out></textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="Header">Yêu cầu</label><br>
+                                <textarea class="myTextarea" name="requirementRec"><c:out value="${requestScope.recEdit.requirement}"></c:out></textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="Header">Quyền lợi</label><br>
+                                <textarea class="myTextarea" name="interestRec"><c:out value="${requestScope.recEdit.interest}"></c:out></textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label style="font-size:  15pt; align-content: center;">Địa Chỉ</label>
+                                <input class="form-control" name="addressRec" value="<c:out value="${requestScope.recEdit.address}"></c:out>" type="text" style="text-align: center;font-size: 15pt;width: 600px">
+                            </div><br>
+                            <div style="left: 950px; position: absolute;top: 200px; width: 300px">
+                                <div>
+                                    <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_atRc" value="<c:out value="${requestScope.recEdit.create_at}"></c:out>"/><br>
+                                <label>Ngày Nhận</label>: <input style="margin-left: 22px" type="date" name="start_recruitmentRec" value="<c:out value="${requestScope.recEdit.start_recruitment}"></c:out>"/><br><br>
+                                <label>Kết Thúc</label>: <input style="margin-left: 22px" type="date" name="end_recruitmentRec" value="<c:out value="${requestScope.recEdit.end_recruitment}"></c:out>"/><br><br>
+                                    <label>Trạng Thái</label> : 
+                                    <select style="margin-left: 10px" name="statusRec">
+                                        <option value="2">Đợi Duyệt</option>
+                                    </select><br>
+                                </div>
+                                <br>
+                                <input style="margin-left: 95px" type="submit" value="Sửa Thông Tin"/>
                             </div>
-                            <br>
-                            <input style="margin-left: 95px" type="submit" value="Sửa Thông Tin"/>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <!--<div id="froala-editor"></div>-->
                 </div>
-                <!--<div id="froala-editor"></div>-->
+                <!-- /.container-fluid -->
             </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
+            <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        </div>
+        <!-- /#wrapper -->
 
 </co:layout>

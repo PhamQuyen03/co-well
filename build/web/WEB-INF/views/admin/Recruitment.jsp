@@ -348,7 +348,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Supporter Manage</h1>
+                        <h1 class="page-header">Supporter</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-12">
@@ -374,6 +374,10 @@
                                             <div class="form-group">
                                                 <label style="font-size:  15pt; align-content: center;">Tên</label>
                                                 <input class="form-control" name="nameRec" type="text" style="text-align: center;font-size: 15pt;width: 600px">
+                                            </div><br>
+                                            <div class="form-group">
+                                                <label for="Header">Tóm Tắt</label><br>
+                                                <textarea class="form-control" name="summary" rows="3" style="width: 600px"></textarea>
                                             </div><br>
                                             <div class="form-group">
                                                 <label for="Header">Mô Tả</label><br>
@@ -414,15 +418,9 @@
                                                         <tr>
                                                             <th style="text-align: center">ID</th>
                                                             <th style="text-align: center">NAME</th>
-
-                                                            <th style="text-align: center">DESCRIPTION</th>
+                                                            <th style="text-align: center">SUMMARY</th>
                                                             <th style="text-align: center">REQUIREMENT</th>
                                                             <th style="text-align: center">INTEREST</th>
-                                                            <th style="text-align: center">ADDRESS</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">START</th>
-                                                            <th style="text-align: center">END</th>
-                                                            <th style="text-align: center">STATUS</th>
                                                             <th style="text-align: center" >EDIT</th>
                                                             <th style="text-align: center" >DELETE</th>
 
@@ -433,26 +431,18 @@
                                                             <tr id="${rec.id}" class="odd gradeX">
                                                                 <td><c:out value="${rec.id}"/></td>
                                                                 <td><c:out value="${rec.name}"/></td>
-
-                                                                <td><c:out escapeXml="false" value="${rec.description}"/></td>
+                                                                <td><c:out value="${rec.summary}"/></td>
                                                                 <td><c:out escapeXml="false" value="${rec.requirement}"/></td>
                                                                 <td><c:out escapeXml="false" value="${rec.interest}"/></td>
-                                                                <td><c:out value="${rec.address}"/></td>
-                                                                <td><c:out value="${rec.create_at}"/></td>
-                                                                <td><c:out value="${rec.start_recruitment}"/></td>
-                                                                <td><c:out value="${rec.end_recruitment}"/></td>
-                                                                <td><c:out value="${rec.status}"/></td>
                                                                 <td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>
                                                                 <td><input class="deleteRow" type="submit" data-id="${rec.id}" value="DELETE"></td>
                                                             </tr>
                                                         </c:forEach>
-                                                        
                                                     </tbody>
-
                                                 </table>
                                                 <ul class="pagination">
-                                                    <c:forEach var="i" begin="0" end="${requestScope.numPage}">
-                                                        <li><a href="http://localhost:8084/baitap/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i+1}"></c:out></a></li>
+                                                    <c:forEach var="i" begin="1" end="${requestScope.numPage}">
+                                                        <li><a href="http://localhost:8084/baitap/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a></li>
                                                         </c:forEach>
                                                 </ul>
                                             </div>
@@ -465,35 +455,34 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="text-align: center">ID</th>
-                                                            <th style="text-align: center">TITLE</th>
-                                                            <th style="text-align: center">DESCRIPTION</th>
-                                                            <th style="text-align: center">CONTENT</th>
-                                                            <th style="text-align: center">AUTHOR</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">UPDATE_AT</th>
-                                                            <th style="text-align: center">STATUS</th>
+                                                            <th style="text-align: center">NAME</th>
+                                                            <th style="text-align: center">SUMMARY</th>
+                                                            <th style="text-align: center">REQUIREMENT</th>
+                                                            <th style="text-align: center">INTEREST</th>
                                                             <th style="text-align: center" >EDIT</th>
                                                             <th style="text-align: center" >DELETE</th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <c:forEach items="${requestScope.news_wait}" var="ns">
-                                                            <tr id="${ns.id}" class="odd gradeX">
-                                                                <td><c:out value="${ns.id}"/></td>
-                                                                <td><c:out value="${ns.title}"/></td>
-                                                                <td><c:out escapeXml="false" value="${ns.description}"/></td>
-                                                                <td><c:out escapeXml="false" value="${ns.contents}"/></td>
-                                                                <td><c:out value="${ns.author}"/></td>
-                                                                <td><c:out value="${ns.create_at}"/></td>
-                                                                <td><c:out value="${ns.update_at}"/></td>
-                                                                <td><c:out value="${ns.status}"/></td>
-                                                                <td><a href="support/<c:out value="${ns.id}"/>">Edit</a></td>
-                                                                <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="DELETE"></td>
+                                                        <c:forEach items="${requestScope.recs}" var="rec">
+                                                            <tr id="${rec.id}" class="odd gradeX">
+                                                                <td><c:out value="${rec.id}"/></td>
+                                                                <td><c:out value="${rec.name}"/></td>
+                                                                <td><c:out value="${rec.summary}"/></td>
+                                                                <td><c:out escapeXml="false" value="${rec.requirement}"/></td>
+                                                                <td><c:out escapeXml="false" value="${rec.interest}"/></td>
+                                                                <td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>
+                                                                <td><input class="deleteRow" type="submit" data-id="${rec.id}" value="DELETE"></td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>
                                                 </table>
+                                                <ul class="pagination">
+                                                    <c:forEach var="i" begin="0" end="${requestScope.numPage}">
+                                                        <li><a href="http://localhost:8084/baitap/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i+1}"></c:out></a></li>
+                                                        </c:forEach>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>

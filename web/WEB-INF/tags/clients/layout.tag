@@ -24,9 +24,11 @@
         <script src="<c:url value="/resources/clients/js/mediaelement-and-player.js" />"></script>
         <script src="<c:url value="/resources/clients/js/scripts.js" />"></script>
         <script src="<c:url value="/resources/clients/js/custom.js" />"></script>
+        <script src="<c:url value="/resources/clients/js/slick.js" />"></script>
         <script src="<c:url value="/resources/clients/js/bootstrap.min.js" />"></script>
         <script src="<c:url value="/resources/clients/js/jquery.jcarousel.min.js" />"></script>
         <script src="<c:url value="/resources/clients/js/jcarousel.responsive.js" />"></script>
+        <script src="<c:url value="/resources/clients/js/jquery.validate.min.js" />"></script>
         <script type="text/javascript">
             var searchUrl = 'search'
         </script>

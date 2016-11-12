@@ -24,7 +24,7 @@
                 <a class="btn-menumobile hidepc mpright"></a>
                 <a class="btn-closemenu hidepc mpright">x</a>
                 <ul class="mainmenu pright fontbold mw80">
-                    <li><a class=" active " href="http://localhost:8084/baitap/index" title="Trang chủ">Trang chủ</a></li>
+                    <li><a class="" href="http://localhost:8084/baitap/index" title="Trang chủ">Trang chủ</a></li>
                     <li class="parents">
                         <a href="about-all" title="Giới thiệu" class="">Giới thiệu</a>
                         <ul class="submenu">
@@ -37,14 +37,14 @@
                     <li class="parents">
                         <a href="services" title="Dịch vụ" class="">Dịch vụ</a>
                         <ul class="submenu">
-                            <li><a href="#" title="Tư vấn chiến lược CNTT">Tư vấn chiến lược CNTT</a></li>
-                            <li><a href="#" title="Tích hợp hệ thống">Tích hợp hệ thống</a></li>
-                            <li><a href="#" title="Outsourcing">Outsourcing</a></li>
+                            <li><a href="http://localhost:8084/baitap/consulting" title="Tư vấn chiến lược CNTT">Tư vấn chiến lược CNTT</a></li>
+                            <li><a href="http://localhost:8084/baitap/system-integration" title="Tích hợp hệ thống">Tích hợp hệ thống</a></li>
+                            <li><a href="http://localhost:8084/baitap/outsourcing" title="Outsourcing">Outsourcing</a></li>
                         </ul>
                     </li>
-                    <li><a class="" href="#" title="Khách hàng">Khách hàng</a></li>
+                    <li><a class="" href="http://localhost:8084/baitap/partners" title="Khách hàng">Khách hàng</a></li>
                     <li><a class="" href="http://localhost:8084/baitap/news" title="Tin tức">Tin tức</a></li>
-                    <li><a class="" href="#" title="Tuyển dụng">Tuyển dụng</a></li>
+                    <li><a class="" href="http://localhost:8084/baitap/recruitment" title="Tuyển dụng">Tuyển dụng</a></li>
                 </ul>
             </div>
         </div>

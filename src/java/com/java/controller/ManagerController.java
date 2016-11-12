@@ -5,7 +5,7 @@
  */
 package com.java.controller;
 
-import com.java.dao.ManagerDAO;
+import com.java.dao.NewsDAO;
 import com.java.model.News;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ManagerController {
-    ManagerDAO mg = new ManagerDAO();
+    NewsDAO mgNews = new NewsDAO();
     @RequestMapping(value = "/manager", method = RequestMethod.GET)
     public String index(Model model) {
         
-        List<News> news = mg.getAll();
-        List<News> wait = mg.getAllPosted();
-        model.addAttribute("news", news);
-        model.addAttribute("wait_news", wait);
+        List<News> posted = mgNews.getPosted();
+        List<News> wait = mgNews.getWaited();
+        model.addAttribute("newsMg", posted);
+        model.addAttribute("wait_newsMg", wait);
         return"admin/Manager";
     }
 }

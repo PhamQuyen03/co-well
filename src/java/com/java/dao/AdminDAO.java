@@ -86,7 +86,7 @@ public class AdminDAO {
             con.close();
 
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(SupporterDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return user;
     }
@@ -128,7 +128,7 @@ public class AdminDAO {
             con.close();
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(SupporterDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }

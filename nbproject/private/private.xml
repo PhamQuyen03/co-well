@@ -3,17 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/DetailNews.jsp</file>
             <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/index.jsp</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/Company.jsp</file>
             <file>file:/D:/class/java/baitap/src/java/com/java/dao/SupporterDAO.java</file>
-            <file>file:/D:/class/java/baitap/src/java/com/java/model/News.java</file>
             <file>file:/D:/class/java/baitap/src/java/com/java/controller/HomeController.java</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/News.jsp</file>
             <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/Recruitment.jsp</file>
-            <file>file:/D:/class/java/baitap/web/resources/clients/js/owl.carousel.min.js</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/clients/layout.tag</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/layout.tag</file>
+            <file>file:/D:/class/java/baitap/web/WEB-INF/views/client/News.jsp</file>
+            <file>file:/D:/class/java/baitap/src/java/com/java/filter/SessionCounterListener.java</file>
+            <file>file:/D:/class/java/baitap/src/java/com/java/model/Recruitment.java</file>
             <file>file:/D:/class/java/baitap/src/java/com/java/controller/ClientController.java</file>
-            <file>file:/D:/class/java/baitap/web/WEB-INF/tags/clients/header.tag</file>
         </group>
     </open-files>
 </project-private>

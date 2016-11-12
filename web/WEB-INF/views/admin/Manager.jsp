@@ -371,29 +371,26 @@
                                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
-                                                <th style="text-align: center">Id</th>
-                                                <th style="text-align: center">Header</th>
-                                                <th style="text-align: center">Content</th>
-                                                <th style="text-align: center">Author</th>
-                                                <th style="text-align: center">DateStart</th>
-                                                <th style="text-align: center">DateEnd</th>
-                                                <th style="text-align: center">Status</th>
-                                                <th>Edit</th>
+                                                <th style="text-align: center">ID</th>
+                                                <th style="text-align: center">TITLE</th>
+                                                <th style="text-align: center">DESCRIPTION</th>
+                                                <th style="text-align: center">CONTENT</th>
+                                                <th style="text-align: center" >EDIT</th>
+                                                <th style="text-align: center" >DELETE</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${requestScope.wait_news}" var="ns">
-                                            <tr class="odd gradeX">
-                                                <td><c:out value="${ns.id}"/></td>
-                                            <td><c:out value="${ns.header}"/></td>
-                                            <td><c:out escapeXml="false" value="${ns.content}"/></td>
-                                            <td><c:out value="${ns.author}"/></td>
-                                            <td><c:out value="${ns.dateStart}"/></td>
-                                            <td><c:out value="${ns.dateEnd}"/></td>
-                                            <td><c:out value="${ns.status}"/></td>
-                                            <td><a href="support/title=<c:out value="${ns.header}"/>">Edit</a></td>
-                                            </tr>
-                                        </c:forEach>
+                                            <c:forEach items="${requestScope.wait_newsMg}" var="ns">
+                                                <tr class="odd gradeX">
+                                                    <td><c:out value="${ns.id}"/></td>
+                                                    <td><c:out value="${ns.title}"/></td>
+                                                    <td><c:out escapeXml="false" value="${ns.description}"/></td>
+                                                    <td><c:out escapeXml="false" value="${ns.contents}"/></td>
+                                                    <td><a href="support/">Edit</a></td>
+                                                    <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="DELETE"></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -401,46 +398,40 @@
                             </div>
                             <div class="tab-pane fade" id="profile">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3>Post</h3>
-                                    </div>
                                     <div class="panel-body">
                                         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
-                                            <tr>
-                                                <th style="text-align: center">Id</th>
-                                                <th style="text-align: center">Header</th>
-                                                <th style="text-align: center">Content</th>
-                                                <th style="text-align: center">Author</th>
-                                                <th style="text-align: center">DateStart</th>
-                                                <th style="text-align: center">DateEnd</th>
-                                                <th style="text-align: center">Status</th>
-                                                <th>Edit</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <c:forEach items="${requestScope.news}" var="ns">
-                                            <tr class="odd gradeX">
-                                                <td><c:out value="${ns.id}"/></td>
-                                            <td><c:out value="${ns.header}"/></td>
-                                            <td><c:out escapeXml="false" value="${ns.content}"/></td>
-                                            <td><c:out value="${ns.author}"/></td>
-                                            <td><c:out value="${ns.dateStart}"/></td>
-                                            <td><c:out value="${ns.dateEnd}"/></td>
-                                            <td><c:out value="${ns.status}"/></td>
-                                            <td><a href="support/title=<c:out value="${ns.header}"/>">Edit</a></td>
-                                            </tr>
-                                        </c:forEach>
-                                        </tbody>
+                                                <tr>
+                                                    <th style="text-align: center">Id</th>
+                                                    <th style="text-align: center">Header</th>
+                                                    <th style="text-align: center">Content</th>
+                                                    <th style="text-align: center">Author</th>
+                                                    <th style="text-align: center">DateStart</th>
+                                                    <th style="text-align: center">DateEnd</th>
+                                                    <th style="text-align: center">Status</th>
+                                                    <th>Edit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${requestScope.newsMg}" var="ns">
+                                                    <tr class="odd gradeX">
+                                                        <td><c:out value="${ns.id}"/></td>
+                                                        <td><c:out value="${ns.header}"/></td>
+                                                        <td><c:out escapeXml="false" value="${ns.content}"/></td>
+                                                        <td><c:out value="${ns.author}"/></td>
+                                                        <td><c:out value="${ns.dateStart}"/></td>
+                                                        <td><c:out value="${ns.dateEnd}"/></td>
+                                                        <td><c:out value="${ns.status}"/></td>
+                                                        <td><a href="support/title=<c:out value="${ns.header}"/>">Edit</a></td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="messages">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3>Post</h3>
-                                    </div>
                                     <div class="panel-body">
                                         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>

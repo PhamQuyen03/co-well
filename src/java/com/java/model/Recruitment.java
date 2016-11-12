@@ -12,9 +12,10 @@ import java.sql.Date;
  * @author tuong
  */
 public class Recruitment {
+
     private int id;
     private String name;
-    private  String image;
+    private String summary;
     private String description;
     private String requirement;
     private String interest;
@@ -23,7 +24,14 @@ public class Recruitment {
     private Date start_recruitment;
     private Date end_recruitment;
     private int status;
+    
+    public String getSummary() {
+        return summary;
+    }
 
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
     public int getId() {
         return id;
     }
@@ -31,7 +39,7 @@ public class Recruitment {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public int getStatus() {
         return status;
     }
@@ -46,14 +54,6 @@ public class Recruitment {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getDescription() {
@@ -115,10 +115,10 @@ public class Recruitment {
     public Recruitment() {
     }
 
-    public Recruitment(int id, String name, String image, String description, String requirement, String interest, String address, Date create_at, Date start_recruitment, Date end_recruitment, int status) {
+    public Recruitment(int id, String name, String summary, String description, String requirement, String interest, String address, Date create_at, Date start_recruitment, Date end_recruitment, int status) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.summary = summary;
         this.description = description;
         this.requirement = requirement;
         this.interest = interest;
@@ -128,5 +128,5 @@ public class Recruitment {
         this.end_recruitment = end_recruitment;
         this.status = status;
     }
-    
+
 }

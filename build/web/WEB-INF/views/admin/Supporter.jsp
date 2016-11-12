@@ -424,7 +424,6 @@
                                                             <th style="text-align: center">TITLE</th>
                                                             <th style="text-align: center">DESCRIPTION</th>
                                                             <th style="text-align: center">CONTENT</th>
-                                                            
                                                             <th style="text-align: center" >EDIT</th>
                                                             <th style="text-align: center" >DELETE</th>
 

@@ -15,7 +15,6 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
         <filter-name>encoding-filter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -31,22 +30,31 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>hello-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
     <!-- For root context -->
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+<!--    <filter>
+        <filter-name>filterContent</filter-name>
+        <filter-class>com.java.filter.filterContent</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>filterContent</filter-name>
+        <url-pattern>/index</url-pattern>
+    </filter-mapping>-->
     
+    <listener>
+        <listener-class>com.java.filter.SessionCounterListener</listener-class>
+    </listener>
 </web-app>
