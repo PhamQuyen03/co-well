@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 <%@taglib  prefix="co-well" tagdir="/WEB-INF/tags/clients" %>
+<!DOCTYPE html>
 <html>
     <head>
         <co-well:head></co-well:head>

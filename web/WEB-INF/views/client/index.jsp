@@ -15,27 +15,27 @@
                 <div class="swiper-container swiper-container-horizontal">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide mrow slide3 swiper-slide-duplicate" data-swiper-slide-index="2">
-                            <a href="services/outsourcing" title="Outsourcing                  ">
+                            <a href="outsourcing" title="Outsourcing                  ">
                                 <img src="resources/clients/images/pc20160616_150621.png" alt="Outsourcing">
                             </a>
                         </div>
                         <div class="swiper-slide mrow slide1" data-swiper-slide-index="0">
-                            <a href="services/consulting" title="Tư vấn chiến lược CNTT">
+                            <a href="consulting" title="Tư vấn chiến lược CNTT">
                                 <img src="resources/clients/images/pc20160615_163914.png" alt="Tư vấn chiến lược CNTT">
                             </a>
                         </div>
                         <div class="swiper-slide mrow slide2 swiper-slide-prev" data-swiper-slide-index="1">
-                            <a href="services/system-integration" title="Tích hợp hệ thống">
+                            <a href="system-integration" title="Tích hợp hệ thống">
                                 <img src="resources/clients/images/pc20160616_150533.png" alt="Tích hợp hệ thống">
                             </a>
                         </div>
                         <div class="swiper-slide mrow slide3 swiper-slide-active" data-swiper-slide-index="2">
-                            <a href="services/outsourcing" title="Outsourcing                  ">
+                            <a href="outsourcing" title="Outsourcing                  ">
                                 <img src="resources/clients/images/pc20160616_150621.png" alt="Outsourcing                  ">
                             </a>
                         </div>
                         <div class="swiper-slide mrow slide1 swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0">
-                            <a href="services/consulting" title="Tư vấn chiến lược CNTT">
+                            <a href="consulting" title="Tư vấn chiến lược CNTT">
                                 <img src="resources/clients/images/pc20160615_163914.png" alt="Tư vấn chiến lược CNTT">
                             </a>
                         </div>
@@ -45,7 +45,7 @@
                 <div class="service-menu textcenter">
                     <ul class="row">
                         <li class="col col33 mcol100">
-                            <a href="services/consulting">
+                            <a href="consulting">
                                 <div class="imain">
                                     <img src="resources/clients/images/pc20160526_233955.png" alt="Tư vấn chiến lược CNTT" class="hidesm">
                                     <img src="resources/clients/images/mb20160526_233922.png" alt="Tư vấn chiến lược CNTT" class="hidepc">
@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="col col33 mcol100">
-                            <a href="services/system-integration">
+                            <a href="system-integration">
                                 <div class="imain">
                                     <img src="resources/clients/images/pc20160526_234049.png" alt="Tích hợp hệ thống" class="hidesm">
                                     <img src="resources/clients/images/mb20160526_234049.png" alt="Tích hợp hệ thống" class="hidepc">
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="col col33 mcol100">
-                            <a href="services/outsourcing">
+                            <a href="outsourcing">
                                 <div class="imain">
                                     <img src="resources/clients/images/pc20160526_233822.png" alt="Outsourcing" class="hidesm">
                                     <img src="resources/clients/images/mb20160526_233822.png" alt="Outsourcing" class="hidepc">
@@ -85,7 +85,7 @@
                         <c:forEach items="${requestScope.recIndex}" var="recIndex">
                             <li class="col col50 mcol100">
                                 <h3>
-                                    <a title="Web Designer" href="#" class="title-urgent">
+                                    <a title="Web Designer" href="http://localhost:8084/baitap/recruitment/<c:out value="${recIndex.id}"></c:out>" class="title-urgent">
                                         <c:out value="${recIndex.name}"></c:out>
                                             <span class="urgent">Urgent</span></a>
                                     </h3>

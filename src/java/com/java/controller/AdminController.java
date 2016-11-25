@@ -9,9 +9,9 @@ import com.java.dao.AdminDAO;
 import com.java.model.User;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,47 +27,65 @@ public class AdminController {
 
     AdminDAO ad = new AdminDAO();
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam("email") String email, @RequestParam("password") String pass, HttpServletRequest session) {
+        User user = ad.login(email, pass);
+        if (user.getRole() == 1) {
+            session.getSession().setAttribute("userSession", user);
+            return "redirect:/admin";
+        } else if (user.getRole() == 2) {
+            session.getSession().setAttribute("userSession", user);
+            return "redirect:/support";
+        }
+        return "admin/login_Admin";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLogin() {
+        return "admin/login_Admin";
+    }
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String index(Model model) {
-
         List<User> users = new ArrayList<>();
 //        users = ad.getAll();
-        users = ad.getList(0, 8);
-
+        users = ad.paginationList(0, 4);
+        int num;
+        
+        if (ad.getAll().size() % 4 == 0) {
+            num = ad.getAll().size() / 4;
+        } else {
+            num = ad.getAll().size() / 4 + 1;
+        }
+        model.addAttribute("sizeList", num);
         model.addAttribute("users", users);
         return "admin/Admin";
     }
 
-    @RequestMapping(value = "/admin/page/{page1}", method = RequestMethod.GET)
-    public String pagination(@PathVariable("page1") int page, Model model) {
+    @RequestMapping(value = "/pagination", method = RequestMethod.GET)
+    public @ResponseBody
+    ModelAndView pagination(@RequestParam("num_page") int page, Model model) {
         List<User> users_page = new ArrayList<>();
         if (page != 0) {
-            users_page = ad.getList(page * 8, 8);
+            users_page = ad.paginationList(page * 4 - 4, 4);
         } else {
-            users_page = ad.getList(0, 8);
+            users_page = ad.paginationList(0, 4);
         }
-        model.addAttribute("page", users_page);
-        return "admin/Admin";
-    }
-
-    @RequestMapping(value = "/User/{id}", method = RequestMethod.GET)
-    public String findUser(@PathVariable("id") int id, Model model) {
-
-        User user = ad.findUser(id);
-        model.addAttribute("edit_user", user);
-        return "admin/Edit_User";
+        int sz = ad.getAll().size();
+        if (sz % 4 == 0) {
+            int num = sz / 4;
+        } else {
+            int num = sz / 4 + 1;
+        }
+        model.addAttribute("sizeList", sz);
+//        model.addAttribute("page", users_page);
+        ModelAndView mc = new ModelAndView("admin/ContentAdmin", "listUser", users_page);
+        return mc;
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.POST)
     public String insertUser(@RequestParam("email_create") String email, @RequestParam("Password_create") String password, @RequestParam("Username_create") String name, @RequestParam("Role") int role) {
         ad.insertUser(email, password, name, role);
-        return "redirect:/admin";
-    }
-
-    @RequestMapping(value = "/User/{id}", method = RequestMethod.POST)
-    public String updateUser(@RequestParam("userid") int id, @RequestParam("email_edit") String email, @RequestParam("Username_edit") String name, @RequestParam("Password_edit") String password, @RequestParam("Role_edit") int role) {
-
-        ad.updateUser(id, email, password, name, role);
         return "redirect:/admin";
     }
 
@@ -82,8 +100,26 @@ public class AdminController {
     public @ResponseBody
     ModelAndView load(@RequestParam("num") int num, Model model) {
         List<User> users = new ArrayList<>();
-        users = ad.getList(num, 2);
-        ModelAndView mc = new ModelAndView("admin/LoadUserAjax","userList", users);
+        users = ad.paginationList(num, 2);
+        ModelAndView mc = new ModelAndView("admin/LoadUserAjax", "userList", users);
         return mc;
+    }
+
+    @RequestMapping(value = "/User/edit", method = RequestMethod.GET)
+    public @ResponseBody
+    ModelAndView findUser(@RequestParam("id") int id, Model model) {
+
+        User user = ad.findUser(id);
+        //        model.addAttribute("edit_user", user);
+        ModelAndView mc = new ModelAndView("admin/Edit_User", "edit_user", user);
+        return mc;
+    }
+//    User/edit
+
+    @RequestMapping(value = "/User/edit", method = RequestMethod.POST)
+    public String updateUser(@RequestParam("userid") int id, @RequestParam("email_edit") String email, @RequestParam("Username_edit") String name, @RequestParam("Password_edit") String password, @RequestParam("Role_edit") int role) {
+
+        ad.updateUser(id, email, password, name, role);
+        return "redirect:/admin";
     }
 }

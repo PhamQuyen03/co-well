@@ -458,14 +458,14 @@ div.@{prefix}-tinymce-inline {
 }
 
 // Reduce double margins between toolbar rows
-
+/*
 .@{prefix}-toolbar-grp when (@has-button-borders = false) {
 	padding: @flow-layout-spacing 0;
 }
 
 .@{prefix}-toolbar-grp when (@has-button-borders = true) {
 	padding-bottom: 2px;
-}
+}*/
 
 .@{prefix}-toolbar-grp .@{prefix}-flow-layout-item {
 	margin-bottom: 0;
@@ -1471,7 +1471,7 @@ body .@{prefix}-abs-layout-item, .@{prefix}-abs-end {
 	margin-left: @flow-layout-spacing;
 }
 
-.@{prefix}-btn-group .@{prefix}-btn when (@has-button-borders = true) {
+/*.@{prefix}-btn-group .@{prefix}-btn when (@has-button-borders = true) {
 	border-left-width: 0;
 	border-right-width: 0;
 	margin-left: 0;
@@ -1486,7 +1486,7 @@ body .@{prefix}-abs-layout-item, .@{prefix}-abs-end {
 	border-left: 1px solid darken(@btn-bg, 15%);
 	padding-left: @flow-layout-spacing + 1px;
 	margin-left: @flow-layout-spacing + 1px;
-}
+}*/
 
 .@{prefix}-btn-group .@{prefix}-first {
 	.border-radius(3px 0 0 3px);
@@ -2397,7 +2397,7 @@ i.@{prefix}-i-resize {
 	border-left-color: darken(@btn-bg, 20%);
 }
 
-.@{prefix}-splitbtn button when (@has-button-borders = false) {
+/*.@{prefix}-splitbtn button when (@has-button-borders = false) {
 	padding-right: 6px;
 	padding-left: 6px;
 }

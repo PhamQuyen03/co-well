@@ -19,16 +19,16 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resource/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- MetisMenu CSS -->
-    <link href="resource/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
-    <link href="resource/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="resources/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="resource/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,13 +49,13 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="./loginAdmin">
+                        <form role="form" method="post" action="./login">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="emailAD" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="passwordAD" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -73,16 +73,16 @@
     </div>
 
     <!-- jQuery -->
-    <script src="/resource/vendor/jquery/jquery.min.js"></script>
+    <script src="resources/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/resource/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="/resource/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="resources/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/resource/dist/js/sb-admin-2.js"></script>
+    <script src="resources/dist/js/sb-admin-2.js"></script>
 
 </body>
 

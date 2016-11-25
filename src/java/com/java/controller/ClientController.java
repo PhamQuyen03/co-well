@@ -22,11 +22,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author tuong
  */
 @Controller
-@RequestMapping("/")
 public class ClientController {
 
     NewsDAO dbNews = new NewsDAO();
     RecruitmentDAO dbRecruitment = new RecruitmentDAO();
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String started(Model model, HttpServletRequest request) {
+        List<Recruitment> recIndex = dbRecruitment.paginationWaited(0, 5);
+        List<News> newsIndex = dbNews.paginationWaited(0, 3);
+        model.addAttribute("newsIndex", newsIndex);
+        model.addAttribute("recIndex", recIndex);
+//        user active
+//        System.out.println("test : "+request.getSession().getServletContext().getAttribute("userActive"));
+        return "client/index";
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Model model, HttpServletRequest request) {
@@ -84,11 +94,11 @@ public class ClientController {
     @RequestMapping(value = "/recruitment", method = RequestMethod.GET)
     public String recruitment(Model model) {
         List<Recruitment> list = dbRecruitment.paginationWaited(0, 3);
-        int num ;
-        if(dbRecruitment.getWaited().size()%3 == 0) {
-            num = dbRecruitment.getWaited().size()/3;
+        int num;
+        if (dbRecruitment.getWaited().size() % 3 == 0) {
+            num = dbRecruitment.getWaited().size() / 3;
         } else {
-            num = dbRecruitment.getWaited().size()/3 + 1;
+            num = dbRecruitment.getWaited().size() / 3 + 1;
         }
         model.addAttribute("clientRec", list);
         model.addAttribute("numRec", num);
@@ -103,21 +113,20 @@ public class ClientController {
         model.addAttribute("listRecDetail", list);
         return "client/DetailRecruitment";
     }
-    
+
     @RequestMapping(value = "/recruitment/page/{page}", method = RequestMethod.GET)
     public String paginationRec(@PathVariable("page") int page, Model model) {
-        List<Recruitment> list = dbRecruitment.paginationWaited((page-1)*3, (page-1)*3+3);
-        int num ;
-        if(dbRecruitment.getWaited().size()%3 == 0) {
-            num = dbRecruitment.getWaited().size()/3;
+        List<Recruitment> list = dbRecruitment.paginationWaited((page - 1) * 3, (page - 1) * 3 + 3);
+        int num;
+        if (dbRecruitment.getWaited().size() % 3 == 0) {
+            num = dbRecruitment.getWaited().size() / 3;
         } else {
-            num = dbRecruitment.getWaited().size()/3 + 1;
+            num = dbRecruitment.getWaited().size() / 3 + 1;
         }
         model.addAttribute("clientRec", list);
         model.addAttribute("numRec", num);
         return "client/Recruitment";
     }
-    
 
     @RequestMapping(value = "/partners", method = RequestMethod.GET)
     public String showPartner(Model model) {

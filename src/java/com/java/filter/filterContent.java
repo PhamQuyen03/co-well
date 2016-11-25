@@ -5,14 +5,17 @@
  */
 package com.java.filter;
 
+import com.java.model.User;
 import java.io.IOException;
-import java.util.Enumeration;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -20,33 +23,60 @@ import javax.servlet.ServletResponse;
  */
 public class filterContent implements Filter {
 
-    private FilterConfig filterConfig = null;
-
     @Override
     public void destroy() {
-        System.out.println("UpperCaseFilter destroyed");
-        this.filterConfig = null;
+
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("doUpperCaseFilter");
-        Enumeration elements = request.getAttributeNames();
-        while (elements.hasMoreElements()) {
-            String attributeName = (String) elements.nextElement();
-            String attributeValue = (String) request.getAttribute(attributeName);
-            request.setAttribute(attributeName, attributeValue.toUpperCase());
+        HttpServletRequest rq = (HttpServletRequest) request;
+        String path = (rq.getRequestURI());
+        if (path.startsWith("/resources") || path.startsWith("/baitap/resources") ||path.startsWith("/baitap/index") || 
+                path.startsWith("/baitap/news") || path.startsWith("/baitap/partners") || path.startsWith("/baitap/recruitment")|| 
+                path.startsWith("/baitap/outsourcing")|| path.startsWith("/baitap/system-integration")|| path.startsWith("/baitap/consulting")) {
+            chain.doFilter(request, response);
+            return;
         }
+        else if(path.equals("/baitap") || path.equals("/baitap/")) {
+             chain.doFilter(request, response);
+            return;
+        }
+        Object obj = rq.getSession().getAttribute("userSession");
+        if(obj == null) {
+            if (path.startsWith("/baitap/login")) {
+                chain.doFilter(request, response);
 
-        chain.doFilter(request, response);
+            } else {
+                RequestDispatcher patch = request.getRequestDispatcher("/WEB-INF/views/admin/login_Admin.jsp");
+                patch.forward(request, response);
+            }
+        }
+        else {
+            User user = (User) obj;
+            if (path.startsWith("/baitap/login")) {
+                HttpServletResponse resp = (HttpServletResponse) response;
+                switch (user.getRole()) {
+                    case 1:
+                        resp.sendRedirect("admin");
+                        break;
+                    case 2:
+                        resp.sendRedirect("support");
+                        break;
+                    default:
+                        resp.sendRedirect("support");
+                        break;
+                }
+            } else {
+                chain.doFilter(request, response);
+            }
+        }
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("UpperCaseFilter initialized");
-        this.filterConfig = filterConfig;
+
     }
 
 }

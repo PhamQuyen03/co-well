@@ -34,7 +34,7 @@ public class AdminDAO {
                 String pass = rs.getString("password");
                 String name = rs.getString("name");
                 int role = rs.getInt("role");
-                int id = rs.getInt("ID");
+                int id = rs.getInt("id");
                 User user = new User(name, pass, email, role, id);
                 users.add(user);
 
@@ -45,7 +45,7 @@ public class AdminDAO {
         return users;
     }
 
-    public List<User> getList(int first, int num) {
+    public List<User> paginationList(int first, int num) {
         List<User> users = new ArrayList<>();
         try {
             Connection con = ConnectDB.Connected();
@@ -69,6 +69,28 @@ public class AdminDAO {
         return users;
     }
 
+    public User login(String email, String pass) {
+
+        User user = new User();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            String sql = "SELECT * FROM Users WHERE email = N'" + email + "' and password= N'" + pass + "'";
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String email1 = rs.getString("email");
+                String password = rs.getString("password");
+                String name = rs.getString("name");
+                int role = rs.getInt("role");
+                user = new User(name, password, email, role, id);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.getStackTrace();
+        }
+        return user;
+    }
+
     public User findUser(int id) {
         User user = new User();
         try {
@@ -81,7 +103,7 @@ public class AdminDAO {
                 String pass = rs.getString("password");
                 String email = rs.getString("email");
                 int role = rs.getInt("role");
-                user = new User(name, pass, pass, role, id);
+                user = new User(name, pass, email, role, id);
             }
             con.close();
 
@@ -91,7 +113,7 @@ public class AdminDAO {
         return user;
     }
 
-    public boolean insertUser(String email,String password, String name, int role) {
+    public boolean insertUser(String email, String password, String name, int role) {
 
         try {
             Connection con = ConnectDB.Connected();

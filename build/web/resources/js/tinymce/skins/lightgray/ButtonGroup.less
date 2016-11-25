@@ -16,11 +16,11 @@
 	margin-left: @flow-layout-spacing;
 }
 
-.@{prefix}-btn-group .@{prefix}-btn when (@has-button-borders = true) {
+/*.@{prefix}-btn-group .@{prefix}-btn when (@has-button-borders = true) {
 	border-left-width: 0;
 	border-right-width: 0;
 	margin-left: 0;
-}
+
 
 .@{prefix}-btn-group:not(:first-child) when (@has-button-borders = true) {
 	padding-left: 1px;
@@ -31,7 +31,7 @@
 	border-left: 1px solid darken(@btn-bg, 15%);
 	padding-left: @flow-layout-spacing + 1px;
 	margin-left: @flow-layout-spacing + 1px;
-}
+}*/
 
 .@{prefix}-btn-group .@{prefix}-first {
 	.border-radius(3px 0 0 3px);
@@ -51,9 +51,6 @@
 .@{prefix}-btn-group .@{prefix}-btn.@{prefix}-flow-layout-item {
 	margin: 0;
 }
-
-// RTL
-
 .@{prefix}-rtl .@{prefix}-btn-group .@{prefix}-btn {
 	margin-left: 0;
 	margin-right: @flow-layout-spacing;

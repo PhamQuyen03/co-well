@@ -13,7 +13,7 @@
                 <input type="button" class="btnsearch">
             </form>
         </div>
-        <a href="" class="logo pleft">
+        <a href="http://localhost:8084/baitap/index" class="logo pleft">
             <!--<img src="images/logo.png" alt="CO-WELL Asia">-->
             <img src="/baitap/resources/clients/images/logo.png" alt=""/>
         </a>
@@ -35,7 +35,7 @@
                         </ul>
                     </li>
                     <li class="parents">
-                        <a href="services" title="Dịch vụ" class="">Dịch vụ</a>
+                        <a href="#" title="Dịch vụ" class="">Dịch vụ</a>
                         <ul class="submenu">
                             <li><a href="http://localhost:8084/baitap/consulting" title="Tư vấn chiến lược CNTT">Tư vấn chiến lược CNTT</a></li>
                             <li><a href="http://localhost:8084/baitap/system-integration" title="Tích hợp hệ thống">Tích hợp hệ thống</a></li>

@@ -113,12 +113,10 @@ public class RecruitmentDAO {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
-            String insert = "INSERT INTO Recruitments VALUES (N'" + name + "','" + summary + "', N'" + des + "', N'" + requirement + "', N'" + interest + "', N'" + address + "', '" + create_at + "','" + start_req + "','" + end_req + "', " + status + ")";
+            String insert = "INSERT INTO Recruitments VALUES (N'" + name + "',N'" + summary + "', N'" + des + "', N'" + requirement + "', N'" + interest + "', N'" + address + "', '" + create_at + "','" + start_req + "','" + end_req + "', " + status + ")";
             stt.executeUpdate(insert);
             return true;
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RecruitmentDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(RecruitmentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -128,7 +126,7 @@ public class RecruitmentDAO {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
-            String update = "UPDATE Recruitments SET name = N'" + name + "', image = '" + summary + "', description = N'" + des + "', requirement = N'" + requirement + "', interest = N'" + interest + "', address = N'" + address + "', create_at = '" + create_at + "', start_recruitment = '" + start_req + "', end_recruitment = '" + end_req + "', status = " + status + "WHERE id = " + id;
+            String update = "UPDATE Recruitments SET name = N'" + name + "', summary = N'" + summary + "', description = N'" + des + "', requirement = N'" + requirement + "', interest = N'" + interest + "', address = N'" + address + "', create_at = '" + create_at + "', start_recruitment = '" + start_req + "', end_recruitment = '" + end_req + "', status = " + status + "WHERE id = " + id;
             stt.executeUpdate(update);
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
