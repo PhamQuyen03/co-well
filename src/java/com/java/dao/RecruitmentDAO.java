@@ -42,7 +42,8 @@ public class RecruitmentDAO {
                 Date end_recruitment = rs.getDate("end_recruitment");
                 int status = rs.getInt("status");
                 int id = rs.getInt("id");
-                Recruitment recruitment = new Recruitment(id, name, summary, des, requirement, interest, address, create_at, start_recruitment, end_recruitment, status);
+                int category = rs.getInt("id_category");
+                Recruitment recruitment = new Recruitment(id, name, summary, des, requirement, interest, address, create_at, start_recruitment, end_recruitment, status, category);
                 recruitments.add(recruitment);
             }
             con.close();
@@ -109,11 +110,11 @@ public class RecruitmentDAO {
         }
         return rec;
     }
-    public boolean insert(String name, String summary, String des, String requirement, String interest, String address, Date create_at, Date start_req, Date end_req, int status) {
+    public boolean insert(String name, String summary, String des, String requirement, String interest, String address, Date create_at, Date start_req, Date end_req, int status, int category) {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
-            String insert = "INSERT INTO Recruitments VALUES (N'" + name + "',N'" + summary + "', N'" + des + "', N'" + requirement + "', N'" + interest + "', N'" + address + "', '" + create_at + "','" + start_req + "','" + end_req + "', " + status + ")";
+            String insert = "INSERT INTO Recruitments VALUES (N'" + name + "',N'" + summary + "', N'" + des + "', N'" + requirement + "', N'" + interest + "', N'" + address + "', '" + create_at + "','" + start_req + "','" + end_req + "', " + status + ", " + category+ ")";
             stt.executeUpdate(insert);
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
@@ -122,11 +123,11 @@ public class RecruitmentDAO {
         return false;
     }
 
-    public boolean update(int id, String name, String summary, String des, String requirement, String interest, String address, Date create_at, Date start_req, Date end_req, int status) {
+    public boolean update(int id, String name, String summary, String des, String requirement, String interest, String address, Date create_at, Date start_req, Date end_req, int status, int category) {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
-            String update = "UPDATE Recruitments SET name = N'" + name + "', summary = N'" + summary + "', description = N'" + des + "', requirement = N'" + requirement + "', interest = N'" + interest + "', address = N'" + address + "', create_at = '" + create_at + "', start_recruitment = '" + start_req + "', end_recruitment = '" + end_req + "', status = " + status + "WHERE id = " + id;
+            String update = "UPDATE Recruitments SET name = N'" + name + "', summary = N'" + summary + "', description = N'" + des + "', requirement = N'" + requirement + "', interest = N'" + interest + "', address = N'" + address + "', create_at = '" + create_at + "', start_recruitment = '" + start_req + "', end_recruitment = '" + end_req + "', status = " + status + ", id_category = " + category + " WHERE id = " + id;
             stt.executeUpdate(update);
             return true;
         } catch (ClassNotFoundException | SQLException ex) {

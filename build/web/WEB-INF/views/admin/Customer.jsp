@@ -58,7 +58,7 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content" style="min-height: 600px; padding-top: 40px">
                                     <div class="tab-pane fade" id="home" style="min-width: 800px;">
-                                        <form method="post" action="http://localhost:8084/baitap/support/recruitment">
+                                        <form method="post" action="http://localhost:8084/co-well/support/recruitment">
                                             <div class="form-group">
                                                 <label style="font-size:  15pt; align-content: center;">Tên</label>
                                                 <input class="form-control" name="nameCus" type="text" style="text-align: center;font-size: 15pt;width: 600px">
@@ -96,8 +96,8 @@
                                                             <th style="text-align: center">SUMMARY</th>
                                                             <th style="text-align: center">REQUIREMENT</th>
                                                             <th style="text-align: center">INTEREST</th>
-                                                            <th style="text-align: center" >EDIT</th>
-                                                            <th style="text-align: center" >DELETE</th>
+                                                            <th style="text-align: center" >SỬA</th>
+                                                            <th style="text-align: center" >XÓA</th>
 
                                                         </tr>
                                                     </thead>
@@ -110,14 +110,14 @@
                                                                 <!--<td><c:out escapeXml="false" value="${rec.requirement}"/></td>-->
                                                                 <!--<td><c:out escapeXml="false" value="${rec.interest}"/></td>-->
                                                                 <!--<td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>-->
-                                                                <!--<td><input class="deleteRow" type="submit" data-id="${rec.id}" value="DELETE"></td>-->
+                                                                <!--<td><input class="deleteRow" type="submit" data-id="${rec.id}" value="XÓA"></td>-->
                                                         <!--</tr>-->
                                                         <%--</c:forEach>--%>
                                                     </tbody>
                                                 </table>
                                                 <ul class="pagination">
                                                     <%--<c:forEach var="i" begin="1" end="${requestScope.numPage}">--%>
-                                                        <!--<li><a href="http://localhost:8084/baitap/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a></li>-->
+                                                        <!--<li><a href="http://localhost:8084/co-well/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a></li>-->
                                                     <%--</c:forEach>--%>
                                                 </ul>
                                             </div>
@@ -130,12 +130,12 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="text-align: center">ID</th>
-                                                            <th style="text-align: center">NAME</th>
-                                                            <th style="text-align: center">SUMMARY</th>
-                                                            <th style="text-align: center">REQUIREMENT</th>
-                                                            <th style="text-align: center">INTEREST</th>
-                                                            <th style="text-align: center" >EDIT</th>
-                                                            <th style="text-align: center" >DELETE</th>
+                                                            <th style="text-align: center">TÊN</th>
+                                                            <th style="text-align: center">TÓM TẮT</th>
+                                                            <th style="text-align: center">YÊU CẦU</th>
+                                                            <th style="text-align: center">QUYÊN LỢI</th>
+                                                            <th style="text-align: center" >SỬA</th>
+                                                            <th style="text-align: center" >XÓA</th>
 
                                                         </tr>
                                                     </thead>
@@ -148,21 +148,21 @@
                                                                 <!--<td><c:out escapeXml="false" value="${rec.requirement}"/></td>-->
                                                                 <!--<td><c:out escapeXml="false" value="${rec.interest}"/></td>-->
                                                                 <!--<td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>-->
-                                                                <!--<td><input class="deleteRow" type="submit" data-id="${rec.id}" value="DELETE"></td>-->
+                                                                <!--<td><input class="deleteRow" type="submit" data-id="${rec.id}" value="XÓA"></td>-->
                                                         <!--</tr>-->
                                                         <%--</c:forEach>--%>
                                                     </tbody>
                                                 </table>
                                                 <ul class="pagination">
                                                     <%--<c:forEach var="i" begin="0" end="${requestScope.numPage}">--%>
-                                                        <!--<li><a href="http://localhost:8084/baitap/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i+1}"></c:out></a></li>-->
+                                                        <!--<li><a href="http://localhost:8084/co-well/support/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i+1}"></c:out></a></li>-->
                                                     <%--</c:forEach>--%>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="settings">
-                                        <form method="post" action="http://localhost:8084/baitap/support">
+                                        <form method="post" action="http://localhost:8084/co-well/support">
                                             <div class="form-group">
                                                 <label style="font-size:  15pt; align-content: center;">Tên</label>
                                                 <input class="form-control" name="nameRec" type="text" style="text-align: center;font-size: 15pt;width: 600px">

@@ -45,10 +45,10 @@
                                     <li>
                                         <div class="row">
                                             <div class="col col24 mcol100">
-                                                <a class="hidesm" href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
+                                                <a class="hidesm" href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
                                                     <img class="mcol100 " src="<c:out value="${news.img}"></c:out>" width="157" height="112" alt="<c:out value="${news.title}"></c:out>">
                                                     </a>
-                                                        <a class="hidepc" href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
+                                                        <a class="hidepc" href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
                                                     <img class="mcol100 " src="" width="570" height="240" alt="<c:out value="${news.title}"></c:out>">
                                                     </a>
                                                 </div>
@@ -65,7 +65,7 @@
                                                         </span>
                                                     </c:if>
                                                         <span class="time"><c:out value="${news.create_at}"></c:out> </span>
-                                                    <h4><a href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;">Thông báo về việc chính thức đổi tên thương mại sang "CO-WELL Châu Á"</a></h4>
+                                                    <h4><a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;">Thông báo về việc chính thức đổi tên thương mại sang "CO-WELL Châu Á"</a></h4>
                                                         <article class="hidesm">
                                                         <c:out value="${news.description}"></c:out>
                                                         </article>
@@ -88,7 +88,7 @@
                             <h3 class="newstitle">Tin tức Mới</h3>
                             <ul>
                                 <c:forEach items="${requestScope.new_list}" var="news">
-                                    <li><a href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>"><c:out value="${news.title}"></c:out></a></li>
+                                    <li><a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>"><c:out value="${news.title}"></c:out></a></li>
                                     </c:forEach>
                             </ul>
                             <a href="http://co-well.vn/news" title="" class="more fontbold">Xem thêm</a>

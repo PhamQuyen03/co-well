@@ -21,28 +21,28 @@
 
                         <div class="swiper-container swiper-container-horizontal">
                             <div class="swiper-wrapper" style="transform: translate3d(-1270.22px, 0px, 0px); transition-duration: 0ms;"><a href="http://www.co-well.vn/services/consulting" title="Tư vấn chiến lược CNTT" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
                                 </a><a href="http://www.co-well.vn/services/system-integration" title="Tích hợp hệ thống" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
                                 </a><a href="http://www.co-well.vn/services/outsourcing" title="Outsourcing" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
                                 </a>
                                 <a href="http://www.co-well.vn/services/consulting" title="Tư vấn chiến lược CNTT" class="swiper-slide" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
                                 </a>
                                 <a href="http://www.co-well.vn/services/system-integration" title="Tích hợp hệ thống" class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
                                 </a>
                                 <a href="http://www.co-well.vn/services/outsourcing" title="Outsourcing" class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
                                 </a>
 
                                 <a href="http://www.co-well.vn/services/consulting" title="Tư vấn chiến lược CNTT" class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183703.png" alt="Tư vấn chiến lược CNTT">
                                 </a><a href="http://www.co-well.vn/services/system-integration" title="Tích hợp hệ thống" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183714.png" alt="Tích hợp hệ thống">
                                 </a><a href="http://www.co-well.vn/services/outsourcing" title="Outsourcing" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
+                                    <img src="/co-well/resources/clients/images/slider20160607_183648.png" alt="Outsourcing">
                                 </a></div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                 <div class="boxsubpage">
                     <div class="informationsatff ">
                         <div class="img-team" style="position: absolute; left: 800px;">
-                            <img src="/baitap/resources/clients/images/sevice_002.jpg" alt="" width="315" height="292">
+                            <img src="/co-well/resources/clients/images/sevice_002.jpg" alt="" width="315" height="292">
                         </div>
                         <div class="block_top">
                             <div class="interviewleft">

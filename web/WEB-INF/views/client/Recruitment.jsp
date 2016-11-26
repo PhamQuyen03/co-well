@@ -36,7 +36,7 @@
                                 <c:forEach items="${requestScope.clientRec}" var="rec">
                                     <li class="col col100 mcol100">
                                         <div class="pleft col74 mcol100">
-                                            <h3><a class="" title="Web Designer" href="http://localhost:8084/baitap/recruitment/<c:out value="${rec.id}"></c:out>">
+                                            <h3><a class="" title="Web Designer" href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
                                                     <c:out value="${rec.name}"></c:out>
                                                         <i class="expired"></i>
                                                     </a></h3>
@@ -60,7 +60,7 @@
                         <nav class="pagination">
                             <ul>
                                 <c:forEach begin="1" end="${requestScope.numRec}" var="i">
-                                    <li><a href="http://localhost:8084/baitap/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a>
+                                    <li><a href="http://localhost:8084/co-well/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a>
                                 </c:forEach>
                             </ul>
                         </nav>

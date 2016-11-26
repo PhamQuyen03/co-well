@@ -36,11 +36,10 @@ public class ContactDAO {
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
                 String branch = rs.getString("branch");
-                Date create_at = rs.getDate("create_at");
-                Date update_at = rs.getDate("update_at");
+                String content = rs.getString("content");
                 int id = rs.getInt("id");
-                Contact contact = new Contact(id, name, company, email, phone, branch, create_at, update_at);
-                contacts.add(contact);
+//                Contact contact = new Contact(id, name, company, email, phone, branch, create_at, update_at);
+//                contacts.add(contact);
             }
             con.close();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -48,24 +47,12 @@ public class ContactDAO {
         }
         return contacts;
     }
-    public boolean insert(String name, String company, String email, String phone, String branch, Date create_at, Date update_at, int status) {
+    public boolean insert(String name, String company, String email, String phone, String branch, String content) {
         try {
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
-            String insert = "INSERT INTO Contact VALUES (N'" + name + "', N'" + company + "', N'" + email + "', N'" + phone + "', N'" + branch + "', '" + create_at + "','" + update_at + "', " + status + ")";
+            String insert = "INSERT INTO Contact VALUES (N'" + name + "', N'" + company + "', N'" + email + "', N'" + phone + "', N'" + branch + "', N'" + content + "'"+")";
             stt.executeUpdate(insert);
-            return true;
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-    public boolean update(int id, String name, String company, String email, String phone, String branch, Date create_at, Date update_at, int status) {
-        try {
-            Connection con = ConnectDB.Connected();
-            Statement stt = con.createStatement();
-            String update = "UPDATE Recruitments SET name = N'" + name + "', company = N'" + company + "', email = N'" + email + "', phone = N'" + phone + "', branch = N'" + branch + "', create_at = '" + create_at + "', update_at = '" + update_at + "', status = " + status + ")";
-            stt.executeUpdate(update);
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);

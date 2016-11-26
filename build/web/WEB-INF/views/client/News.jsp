@@ -16,7 +16,7 @@
                 <article class="col col69 contents mcol100">
                     <!--Begin topnews-->
                     <div class="topnews" style="min-height: 76px;">
-                        <a href="http://co-well.vn/news/detail/thong-bao-ve-viec-chinh-thuc-doi-ten-thuong-mai-sang" title="" class="hidesm"><img src="/baitap/resources/clients/images/full20160615_121650.jpg" width="762" height="313" alt="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;"></a>
+                        <a href="http://co-well.vn/news/detail/thong-bao-ve-viec-chinh-thuc-doi-ten-thuong-mai-sang" title="" class="hidesm"><img src="/co-well/resources/clients/images/full20160615_121650.jpg" width="762" height="313" alt="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;"></a>
                         <div class="bgnew">
                             <span class="datetime">30/06/2016</span>
                             <h3><a href="http://co-well.vn/news/detail/thong-bao-ve-viec-chinh-thuc-doi-ten-thuong-mai-sang" title="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;">Thông báo về việc chính thức đổi tên thương mại sang "CO-WELL Châu Á"</a></h3>
@@ -86,7 +86,7 @@
                                                     </span>
                                                 </c:if>
                                                 <span class="time"><c:out value="${news.create_at}"></c:out></span>
-                                                <h4><a href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
+                                                <h4><a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
                                                         <c:out value="${news.title}"></c:out>
                                                         </a>
                                                     </h4>
@@ -102,7 +102,7 @@
                         <nav class="pagination">
                             <ul>
                                 <c:forEach var="i" begin="1" end="${requestScope.numPage}">
-                                    <li><a href="http://localhost:8084/baitap/news/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a></li>
+                                    <li><a href="http://localhost:8084/co-well/news/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a></li>
                                     </c:forEach>
                                 <!--                                <li class="disabled aa"><a>Đầu</a></li>
                                                                 <li class="disabled"><a class="back button"></a></li>
@@ -129,7 +129,7 @@
                             <h3 class="newstitle">Tin tức Mới</h3>
                             <ul>
                                 <c:forEach items="${requestScope.new_list}" var="news">
-                                    <li><a href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>"><c:out value="${news.title}"></c:out></a></li>
+                                    <li><a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>"><c:out value="${news.title}"></c:out></a></li>
                                     </c:forEach>
                             </ul>
                             <a href="http://co-well.vn/news" title="" class="more fontbold">Xem thêm</a>
@@ -138,7 +138,7 @@
                         <!--Begin sidebarrecruit-->
                         <div class="sidebarrecruit hidesm">
                             <a href="http://co-well.vn/recruitments">
-                                <img src="/baitap/resources/clients/images/pc20160615_162014.jpg" alt="" width="303" height="336">
+                                <img src="/co-well/resources/clients/images/pc20160615_162014.jpg" alt="" width="303" height="336">
                             </a>
                         </div>
                         <!--End sidebarrecruit-->

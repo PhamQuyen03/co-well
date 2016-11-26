@@ -45,8 +45,8 @@
                                                 <th style="text-align: center">TITLE</th>
                                                 <th style="text-align: center">DESCRIPTION</th>
                                                 <th style="text-align: center">CONTENT</th>
-                                                <th style="text-align: center" >EDIT</th>
-                                                <th style="text-align: center" >DELETE</th>
+                                                <th style="text-align: center" >SỬA</th>
+                                                <th style="text-align: center" >XÓA</th>
 
                                             </tr>
                                         </thead>
@@ -58,7 +58,7 @@
                                                     <td><c:out escapeXml="false" value="${ns.description}"/></td>
                                                     <td><c:out escapeXml="false" value="${ns.contents}"/></td>
                                                     <td><a href="support/">Edit</a></td>
-                                                    <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="DELETE"></td>
+                                                    <td><input class="deleteRow" type="submit" data-id="${ns.id}" value="XÓA"></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

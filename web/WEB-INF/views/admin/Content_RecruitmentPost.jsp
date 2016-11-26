@@ -14,8 +14,8 @@
         <td><c:out escapeXml="false" value="${rec.requirement}"></c:out></td>
         <td><c:out escapeXml="false" value="${rec.interest}"></c:out></td>
         <!--<td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>-->
-        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">EDIT</button></td>
-        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="DELETE"></td>
+        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">SỬA</button></td>
+        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="XÓA"></td>
     </tr>
 </c:forEach>
 <script>

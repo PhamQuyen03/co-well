@@ -21,7 +21,7 @@
                 </div>
                 <!-- /.row -->
                 <div class="panel-body">
-                    <form method="post" action="http://localhost:8084/baitap/support/title=${requestScope.details.header}" class="form-inline">
+                    <form method="post" action="http://localhost:8084/co-well/support/title=${requestScope.details.header}" class="form-inline">
 
                             <input class="form-control" type="hidden" name="edit_newsId" type="text" style="text-align: center;font-size: 15pt;width: 100px" value="${requestScope.details.id.toString()}" >
 

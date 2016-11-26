@@ -30,7 +30,7 @@
                                     <h4 class="modal-title">TẠO TIN TỨC MỚI</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost:8084/baitap/support/about">
+                                    <form method="post" action="http://localhost:8084/co-well/support/about">
                                         <div class="form-group">
                                             <label style="font-size:  15pt; align-content: center;">Tiêu Đề</label>
                                             <input class="form-control" name="titleAbout" type="text" style="text-align: center;font-size: 15pt;width: 600px">
@@ -42,8 +42,8 @@
 
                                         <div style="left: 650px; position: absolute;top: 120px; width: 300px">
                                             <div>
-                                                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_atAbout"/><br>
-                                                <label>Ngày Sửa</label>: <input style="margin-left: 19px" type="date" name="update_atAbout"/><br><br>
+                                                <label>Ngày Tạo</label> : <input style="margin-left: 13px" type="date" name="create_atAbout"/><br>
+                                                <label>Ngày Sửa</label>: <input style="margin-left: 15px" type="date" name="update_atAbout"/><br><br>
                                                 <label>Trạng Thái</label> : 
                                                 <select style="margin-left: 10px" name="statusAbout">
                                                     <option value="2">Đợi</option>
@@ -51,7 +51,7 @@
                                                 </select><br>
                                             </div>
                                             <br>
-                                            <input style="margin-left: 95px" type="submit" value="Tạo Tin Tuyển Dụng"/>
+                                            <input style="margin-left: 70px" type="submit" value="Tạo Tin Tuyển Dụng"/>
                                         </div>
                                     </form>
                                 </div>
@@ -73,8 +73,7 @@
                                     </li>
                                     <li><a href="#messages" data-toggle="tab">TIN CHỜ DUYỆT </a>
                                     </li>
-                                    <li><a href="#settings" data-toggle="tab">Settings</a>
-                                    </li>
+                                    
                                 </ul>
 
                                 <!-- Tab panes -->
@@ -82,23 +81,23 @@
 
                                     <div class="tab-pane fade  in active" id="profile">
                                         <div class="panel panel-default">
-                                            <div class="panel-body">
+                                            <!--<div class="panel-body">-->
                                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                     <thead>
                                                         <tr>
                                                             <th style="text-align: center">ID</th>
-                                                            <th style="text-align: center">TITLE</th>
-                                                            <th style="text-align: center">CONTENT</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">UPDATE_AT</th>
-                                                            <th style="text-align: center">STATUS</th>
-                                                            <th style="text-align: center" >EDIT</th>
-                                                            <th style="text-align: center" >DELETE</th>
+                                                            <th style="text-align: center">TIÊU ĐỀ</th>
+                                                            <th style="text-align: center">NỘI DUNG</th>
+                                                            <th style="text-align: center">NGÀY TẠO</th>
+                                                            <th style="text-align: center">NGÀY SỬA</th>
+                                                            <th style="text-align: center">TRẠNG THÁI</th>
+                                                            <th style="text-align: center" >SỬA</th>
+                                                            <th style="text-align: center" >XÓA</th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <c:forEach items="${requestScope.abouts}" var="about">
+                                                        <c:forEach items="${requestScope.aboutsPost}" var="about">
                                                             <tr id="${about.id}" class="odd gradeX">
                                                                 <td><c:out value="${about.id}"/></td>
                                                                 <td><c:out value="${about.title}"/></td>
@@ -106,14 +105,14 @@
                                                                 <td><c:out value="${about.create_at}"/></td>
                                                                 <td><c:out value="${about.update_at}"/></td>
                                                                 <td><c:out value="${about.status}"/></td>
-                                                                <!--<td><a href="http://localhost:8084/baitap/support/about/<c:out value="${about.id}"/>">Edit</a></td>-->
-                                                                <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${about.id}">EDIT</button></td>
-                                                                <td><input class="deleteRow btn btn-danger" type="submit" data-id="${about.id}" value="DELETE"></td>
+                                                                <!--<td><a href="http://localhost:8084/co-well/support/about/<c:out value="${about.id}"/>">Edit</a></td>-->
+                                                                <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${about.id}">SỬA</button></td>
+                                                                <td><input class="deleteRow btn btn-danger" type="submit" data-id="${about.id}" value="XÓA"></td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>
                                                 </table>
-                                            </div>
+                                            <!--</div>-->
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="messages">
@@ -123,13 +122,13 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="text-align: center">ID</th>
-                                                            <th style="text-align: center">TITLE</th>
-                                                            <th style="text-align: center">CONTENT</th>
-                                                            <th style="text-align: center">CREATE_AT</th>
-                                                            <th style="text-align: center">UPDATE_AT</th>
-                                                            <th style="text-align: center">STATUS</th>
-                                                            <th style="text-align: center" >EDIT</th>
-                                                            <th style="text-align: center" >DELETE</th>
+                                                            <th style="text-align: center">TIÊU ĐỀ</th>
+                                                            <th style="text-align: center">NỘI DUNG</th>
+                                                            <th style="text-align: center">NGÀY TẠO</th>
+                                                            <th style="text-align: center">NGÀY SỬA</th>
+                                                            <th style="text-align: center">TRẠNG THÁI</th>
+                                                            <th style="text-align: center" >SỬA</th>
+                                                            <th style="text-align: center" >XÓA</th>
 
                                                         </tr>
                                                     </thead>
@@ -142,8 +141,8 @@
                                                                 <td><c:out value="${about.create_at}"/></td>
                                                                 <td><c:out value="${about.update_at}"/></td>
                                                                 <td><c:out value="${about.status}"/></td>
-                                                                <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${about.id}">EDIT</button></td>
-                                                                <td><input class="deleteRow btn btn-danger" type="submit" data-id="${about.id}" value="DELETE"></td>
+                                                                <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${about.id}">SỬA</button></td>
+                                                                <td><input class="deleteRow btn btn-danger" type="submit" data-id="${about.id}" value="XÓA"></td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>

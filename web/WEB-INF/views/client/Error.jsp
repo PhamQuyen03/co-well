@@ -8,5 +8,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  prefix="co-well" tagdir="/WEB-INF/tags/clients" %>
 <co-well:layout>
-    <h1>VUI LONG KIM TRA LAI DA XAY RA LOI</h1>
+    <br><br><br>
+    <h1 style="margin-left: 400px;">VUI LONG KIM TRA LAI DA XAY RA LOI</h1>
+    <br><br><br>
+    
 </co-well:layout>

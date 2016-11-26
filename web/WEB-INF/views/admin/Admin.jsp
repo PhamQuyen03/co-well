@@ -31,7 +31,7 @@
                                     <h4 class="modal-title">TẠO QUẢN TRỊ VIÊN</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost:8084/baitap/admin">
+                                    <form method="post" action="http://localhost:8084/co-well/admin">
                                         <!--<textarea id="myTextarea" style="float: right;position: absolute;"></textarea>-->
                                         <div class="form-group">
                                             <label>Usermane</label>
@@ -88,13 +88,13 @@
                                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                 <thead>
                                                     <tr>
-                                                        <th>User Name</th>
+                                                        <th>TÊN NGƯỜI DÙNG</th>
                                                         <th>Email</th>
-                                                        <th>Password</th>
-                                                        <th>Role</th>
+                                                        <th>MẬT KHẨU</th>
+                                                        <th>PHÂN QUYỀN</th>
                                                         <th>Id</th>
-                                                        <th>Edit</th>
-                                                        <th>Delete</th>
+                                                        <th>SỬA</th>
+                                                        <th>XÓA</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="content" class="page_body">
@@ -106,8 +106,8 @@
                                                             <td><c:out value="${user.password}"/> </td>
                                                             <td><c:out value="${user.role}"/> </td>
                                                             <td><c:out value="${user.id}"/> </td>
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="XÓA"></td>
                                                         </tr>
                                                     </c:forEach>
                                                     <c:forEach items="${requestScope.userList}" var="user">
@@ -117,8 +117,8 @@
                                                             <td><c:out value="${user.role}"/> </td>
                                                             <td><c:out value="${user.id}"/> </td>
                                                             <!--<td class="center"><a href="User/<c:out value="${user.id}"/>">Edit</a></td>-->
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="XÓA"></td>
                                                         </tr>
                                                     </c:forEach>
 

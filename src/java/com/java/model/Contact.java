@@ -18,22 +18,7 @@ public class Contact {
     private String email;
     private String phone;
     private String branch;
-    private Date create_at;
-    private Date update_at;
-
-    public Contact() {
-    }
-
-    public Contact(int id, String name, String company, String email, String phone, String branch, Date create_at, Date update_at) {
-        this.id = id;
-        this.name = name;
-        this.company = company;
-        this.email = email;
-        this.phone = phone;
-        this.branch = branch;
-        this.create_at = create_at;
-        this.update_at = update_at;
-    }
+    private String content;
 
     public int getId() {
         return id;
@@ -83,20 +68,23 @@ public class Contact {
         this.branch = branch;
     }
 
-    public Date getCreate_at() {
-        return create_at;
+    public String getContent() {
+        return content;
     }
 
-    public void setCreate_at(Date create_at) {
-        this.create_at = create_at;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Date getUpdate_at() {
-        return update_at;
+    public Contact(int id, String name, String company, String email, String phone, String branch, String content) {
+        this.id = id;
+        this.name = name;
+        this.company = company;
+        this.email = email;
+        this.phone = phone;
+        this.branch = branch;
+        this.content = content;
     }
 
-    public void setUpdate_at(Date update_at) {
-        this.update_at = update_at;
-    }
     
 }

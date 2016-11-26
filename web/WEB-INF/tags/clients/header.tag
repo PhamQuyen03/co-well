@@ -13,9 +13,9 @@
                 <input type="button" class="btnsearch">
             </form>
         </div>
-        <a href="http://localhost:8084/baitap/index" class="logo pleft">
+        <a href="http://localhost:8084/co-well/index" class="logo pleft">
             <!--<img src="images/logo.png" alt="CO-WELL Asia">-->
-            <img src="/baitap/resources/clients/images/logo.png" alt=""/>
+            <img src="/co-well/resources/clients/images/logo.png" alt=""/>
         </a>
         <div class="pright templ">
             <a href="contact" class="contact pright hidesm">Liên hệ</a>
@@ -24,7 +24,7 @@
                 <a class="btn-menumobile hidepc mpright"></a>
                 <a class="btn-closemenu hidepc mpright">x</a>
                 <ul class="mainmenu pright fontbold mw80">
-                    <li><a class="" href="http://localhost:8084/baitap/index" title="Trang chủ">Trang chủ</a></li>
+                    <li><a class="" href="http://localhost:8084/co-well/index" title="Trang chủ">Trang chủ</a></li>
                     <li class="parents">
                         <a href="about-all" title="Giới thiệu" class="">Giới thiệu</a>
                         <ul class="submenu">
@@ -37,14 +37,14 @@
                     <li class="parents">
                         <a href="#" title="Dịch vụ" class="">Dịch vụ</a>
                         <ul class="submenu">
-                            <li><a href="http://localhost:8084/baitap/consulting" title="Tư vấn chiến lược CNTT">Tư vấn chiến lược CNTT</a></li>
-                            <li><a href="http://localhost:8084/baitap/system-integration" title="Tích hợp hệ thống">Tích hợp hệ thống</a></li>
-                            <li><a href="http://localhost:8084/baitap/outsourcing" title="Outsourcing">Outsourcing</a></li>
+                            <li><a href="http://localhost:8084/co-well/consulting" title="Tư vấn chiến lược CNTT">Tư vấn chiến lược CNTT</a></li>
+                            <li><a href="http://localhost:8084/co-well/system-integration" title="Tích hợp hệ thống">Tích hợp hệ thống</a></li>
+                            <li><a href="http://localhost:8084/co-well/outsourcing" title="Outsourcing">Outsourcing</a></li>
                         </ul>
                     </li>
-                    <li><a class="" href="http://localhost:8084/baitap/partners" title="Khách hàng">Khách hàng</a></li>
-                    <li><a class="" href="http://localhost:8084/baitap/news" title="Tin tức">Tin tức</a></li>
-                    <li><a class="" href="http://localhost:8084/baitap/recruitment" title="Tuyển dụng">Tuyển dụng</a></li>
+                    <li><a class="" href="http://localhost:8084/co-well/partners" title="Khách hàng">Khách hàng</a></li>
+                    <li><a class="" href="http://localhost:8084/co-well/news" title="Tin tức">Tin tức</a></li>
+                    <li><a class="" href="http://localhost:8084/co-well/recruitment" title="Tuyển dụng">Tuyển dụng</a></li>
                 </ul>
             </div>
         </div>

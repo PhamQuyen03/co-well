@@ -23,7 +23,7 @@
 </script>
 
 <div class="panel-body">
-    <form style="margin-left: 10px;" method="post" action="http://localhost:8084/baitap/support/news/edit">
+    <form style="margin-left: 10px;" method="post" action="http://localhost:8084/co-well/support/news/edit">
         <input class="form-control" name="id" type="hidden" value="${requestScope.detail.id}" >
         <div class="form-group">
             <label style="font-size: 15pt; align-content: center;">Tiêu Đề</label>
@@ -38,30 +38,46 @@
             <textarea class="myTextarea" name="contents">${requestScope.detail.contents}</textarea>
         </div><br>
         <div class="form-group">
-            <label style="font-size:  15pt; align-content: center;">Image</label>
+            <label style="font-size:  15pt; align-content: center;">Ảnh</label>
             <input class="form-control" name="img" value="${requestScope.detail.img}" type="text" style="text-align: center;font-size: 15pt;width: 400px">
         </div><br>
         <div class="form-group">
-            <label style="font-size:  15pt; align-content: center;">Author</label>
+            <label style="font-size:  15pt; align-content: center;">Tác Giả</label>
             <input class="form-control" name="author" type="text" value="${requestScope.detail.author}" style="text-align: center;font-size: 15pt;width: 200px">
         </div><br>
         <div style="left: 630px; position: absolute;top: 200px; width: 300px">
             <div style="">
-                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_at" value="${requestScope.detail.create_at}"/><br>
-                <label>Ngày Sửa</label>: <input style="margin-left: 22px" type="date" name="update_at" value="${requestScope.detail.update_at}"/><br><br>
+                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" value="${requestScope.detail.create_at}" disabled/><br>
+                <label>Ngày Sửa</label>: <input style="margin-left: 22px" type="date" value="${requestScope.detail.update_at}" disabled/><br><br>
+                
                 <label>Thể Loại</label> : 
                 <select style="margin-left: 22px" name="id_category">
-                    <option value="1">Sự Kiện</option>
-                    <option value="2">Thông Báo</option>
+                    <c:forEach items="${requestScope.categoryNews}" var="categoryNews">
+                        <c:if test="${categoryNews.id == requestScope.detail.id_category}">
+                            <option selected="selected" value="${stacategoryNewstus.id}">${categoryNews.name}</option>
+                        </c:if>
+                        <c:if test="${categoryNews.id != requestScope.detail.id_category}">
+                            <option value="${categoryNews.id}">${categoryNews.name}</option>
+                        </c:if>
+                    </c:forEach>
                 </select><br>
                 <label>Trạng Thái</label> : 
                 <select style="margin-left: 10px" name="status">
-                    <option value="2">Đợi</option>
-                    <option value="1">Đăng</option>
+                    <c:forEach items="${requestScope.status}" var="status">
+                        <c:if test="${status.id == requestScope.detail.status}">
+                            <option selected="selected" value="${status.id}">${status.name}</option>
+                        </c:if>
+                        <c:if test="${status.id != requestScope.detail.status}">
+                            <option value="${status.id}">${status.name}</option>
+                        </c:if>
+                    </c:forEach>
                 </select><br>
             </div>
             <br>
             <input style="margin-left: 95px" type="submit" value="Sửa thông tin"/>
+            
+            <input style="margin-left: 19px" type="hidden" name="create_at" value="${requestScope.detail.create_at}"/><br>
+            <input style="margin-left: 22px" type="hidden" name="update_at" value="${requestScope.today}" /><br><br>
         </div>
     </form>
 </div>

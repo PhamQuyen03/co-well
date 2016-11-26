@@ -24,6 +24,15 @@ public class Recruitment {
     private Date start_recruitment;
     private Date end_recruitment;
     private int status;
+    private int category;
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
     
     public String getSummary() {
         return summary;
@@ -115,7 +124,7 @@ public class Recruitment {
     public Recruitment() {
     }
 
-    public Recruitment(int id, String name, String summary, String description, String requirement, String interest, String address, Date create_at, Date start_recruitment, Date end_recruitment, int status) {
+    public Recruitment(int id, String name, String summary, String description, String requirement, String interest, String address, Date create_at, Date start_recruitment, Date end_recruitment, int status, int category) {
         this.id = id;
         this.name = name;
         this.summary = summary;
@@ -127,6 +136,7 @@ public class Recruitment {
         this.start_recruitment = start_recruitment;
         this.end_recruitment = end_recruitment;
         this.status = status;
+        this.category = category;
     }
 
 }

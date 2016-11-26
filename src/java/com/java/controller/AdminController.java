@@ -7,11 +7,14 @@ package com.java.controller;
 
 import com.java.dao.AdminDAO;
 import com.java.model.User;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdminController {
 
     AdminDAO ad = new AdminDAO();
+    LocalDate localDate = LocalDate.now();
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("email") String email, @RequestParam("password") String pass, HttpServletRequest session) {
@@ -45,13 +49,20 @@ public class AdminController {
         return "admin/login_Admin";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/login";
+    }
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String index(Model model) {
         List<User> users = new ArrayList<>();
 //        users = ad.getAll();
         users = ad.paginationList(0, 4);
         int num;
-        
+
         if (ad.getAll().size() % 4 == 0) {
             num = ad.getAll().size() / 4;
         } else {
@@ -59,6 +70,7 @@ public class AdminController {
         }
         model.addAttribute("sizeList", num);
         model.addAttribute("users", users);
+        model.addAttribute("today", localDate);
         return "admin/Admin";
     }
 
@@ -94,6 +106,37 @@ public class AdminController {
     String deleteAd(@RequestParam("id") int id) {
         ad.deleteUse(id);
         return "admin/Admin";
+    }
+
+    @RequestMapping(value = "/profile/{id}", method = RequestMethod.GET)
+    public String indexUser(@PathVariable("id") int id, Model model) {
+        User user = ad.findUser(id);
+        model.addAttribute("edit_user", user);
+        return "admin/Profile";
+    }
+
+    @RequestMapping(value = "/setting/profile/{id}", method = RequestMethod.GET)
+    public String editUser(@PathVariable("id") int id, Model model) {
+        User user = ad.findUser(id);
+        model.addAttribute("edit_user", user);
+        return "admin/Edit_Profile";
+    }
+
+    @RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
+    public String changeProfile(@RequestParam("userid") int id, @RequestParam("email_edit") String email, @RequestParam("Username_edit") String name, @RequestParam("Password_edit") String password, @RequestParam("old") String oldPass, @RequestParam("new") String newPass, @RequestParam("confirm") String confirm, @RequestParam("Role_edit") int role, HttpServletRequest session) {
+
+        if (!newPass.trim().equals("") && !confirm.trim().equals("") && password.endsWith(oldPass.trim()) && newPass.trim().equals(confirm.trim())) {
+            ad.updateUser(id, email, newPass, name, role);
+            User user = new User(name, newPass, email, role, id);
+            session.getSession().setAttribute("userSession", user);
+            return "admin/Profile";
+        } else {
+            ad.updateUser(id, email, password, name, role);
+            User user = new User(name, password, email, role, id);
+            session.getSession().setAttribute("userSession", user);
+            return "admin/Profile";
+        }
+
     }
 
     @RequestMapping(value = "/userAjax", method = RequestMethod.GET)

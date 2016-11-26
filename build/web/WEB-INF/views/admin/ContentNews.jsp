@@ -11,8 +11,8 @@
         <td><c:out value="${ns.title}"/></td>
         <td><c:out value="${ns.description}"/></td>
         <td><c:out escapeXml="false" value="${ns.contents}"/></td>
-        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">EDIT</button></td>
-        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="DELETE"></td>
+        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">SỬA</button></td>
+        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="XÓA"></td>
 
     </tr>
 </c:forEach>

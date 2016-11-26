@@ -33,19 +33,20 @@ public class filterContent implements Filter {
             throws IOException, ServletException {
         HttpServletRequest rq = (HttpServletRequest) request;
         String path = (rq.getRequestURI());
-        if (path.startsWith("/resources") || path.startsWith("/baitap/resources") ||path.startsWith("/baitap/index") || 
-                path.startsWith("/baitap/news") || path.startsWith("/baitap/partners") || path.startsWith("/baitap/recruitment")|| 
-                path.startsWith("/baitap/outsourcing")|| path.startsWith("/baitap/system-integration")|| path.startsWith("/baitap/consulting")) {
+        if (path.startsWith("/resources") || path.startsWith("/co-well/resources") ||path.startsWith("/co-well/index") || 
+                path.startsWith("/co-well/news") || path.startsWith("/co-well/partners") || path.startsWith("/co-well/recruitment")|| 
+                path.startsWith("//outsourcing")|| path.startsWith("/co-well/system-integration")|| path.startsWith("/co-well/consulting")
+                || path.startsWith("/co-well/contact")|| path.startsWith("/co-well/ErrorPage")) {
             chain.doFilter(request, response);
             return;
         }
-        else if(path.equals("/baitap") || path.equals("/baitap/")) {
+        else if(path.equals("/co-well") || path.equals("/co-well/")) {
              chain.doFilter(request, response);
             return;
         }
         Object obj = rq.getSession().getAttribute("userSession");
         if(obj == null) {
-            if (path.startsWith("/baitap/login")) {
+            if (path.startsWith("/co-well/login")) {
                 chain.doFilter(request, response);
 
             } else {
@@ -55,7 +56,7 @@ public class filterContent implements Filter {
         }
         else {
             User user = (User) obj;
-            if (path.startsWith("/baitap/login")) {
+            if (path.startsWith("/co-well/login")) {
                 HttpServletResponse resp = (HttpServletResponse) response;
                 switch (user.getRole()) {
                     case 1:

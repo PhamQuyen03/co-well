@@ -31,7 +31,7 @@
                                     <h4 class="modal-title">TẠO TIN TUYỂN DỤNG</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost:8084/baitap/support/recruitment">
+                                    <form method="post" action="http://localhost:8084/co-well/support/recruitment">
                                         <div class="form-group">
                                             <label style="font-size:  15pt; align-content: center;">Tên</label>
                                             <input class="form-control" name="nameRec" type="text" style="text-align: center;font-size: 15pt;width: 600px">
@@ -58,13 +58,20 @@
                                         </div><br>
                                         <div style="left: 630px; position: absolute;top: 120px; width: 300px">
                                             <div>
-                                                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_atRc"/><br>
+                                                <label>Thể Loại</label>  : 
+                                                <select style="margin-left: 10px" name="category">
+                                                    <c:forEach items="${requestScope.categoryRec}" var="category">
+                                                        <option value="${category.id}">${category.name}</option>
+                                                    </c:forEach>
+                                                </select><br>
+                                                <input style="margin-left: 19px" type="hidden" name="create_atRc" value="${requestScope.today}"/><br>
+                                                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="" value="${requestScope.today}"disabled/><br>
                                                 <label>Ngày Nhận</label>: <input style="margin-left: 13px" type="date" name="start_recruitmentRec"/><br>
                                                 <label>Kết Thúc</label>: <input style="margin-left: 26px" type="date" name="end_recruitmentRec"/><br><br>
                                                 <label>Trạng Thái</label> : 
                                                 <select style="margin-left: 10px" name="statusRec">
                                                     <option value="2">Đợi</option>
-                                                    <option value="1">Đăng</option>
+                                                    <option selected="selected" value="1">Đăng</option>
                                                 </select><br>
                                             </div>
                                             <br>
@@ -101,12 +108,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="text-align: center">ID</th>
-                                                        <th style="text-align: center">NAME</th>
-                                                        <th style="text-align: center">SUMMARY</th>
-                                                        <th style="text-align: center">REQUIREMENT</th>
-                                                        <th style="text-align: center">INTEREST</th>
-                                                        <th style="text-align: center" >EDIT</th>
-                                                        <th style="text-align: center" >DELETE</th>
+                                                        <th style="text-align: center">TÊN</th>
+                                                        <th style="text-align: center">TÓM TẮT</th>
+                                                        <th style="text-align: center">YÊU CẦU</th>
+                                                        <th style="text-align: center">QUYỀN LỢI</th>
+                                                        <th style="text-align: center" >SỬA</th>
+                                                        <th style="text-align: center" >XÓA</th>
 
                                                     </tr>
                                                 </thead>
@@ -119,8 +126,8 @@
                                                             <td><c:out escapeXml="false" value="${rec.requirement}"/></td>
                                                             <td><c:out escapeXml="false" value="${rec.interest}"/></td>
                                                             <!--<td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>-->
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="XÓA"></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -139,12 +146,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="text-align: center">ID</th>
-                                                        <th style="text-align: center">NAME</th>
-                                                        <th style="text-align: center">SUMMARY</th>
-                                                        <th style="text-align: center">REQUIREMENT</th>
-                                                        <th style="text-align: center">INTEREST</th>
-                                                        <th style="text-align: center" >EDIT</th>
-                                                        <th style="text-align: center" >DELETE</th>
+                                                        <th style="text-align: center">TÊN</th>
+                                                        <th style="text-align: center">TÓM TẮT</th>
+                                                        <th style="text-align: center">YÊU CẦU</th>
+                                                        <th style="text-align: center">QUYỀN LỢI</th>
+                                                        <th style="text-align: center" >SỬA</th>
+                                                        <th style="text-align: center" >XÓA</th>
 
                                                     </tr>
                                                 </thead>
@@ -157,8 +164,8 @@
                                                             <td><c:out escapeXml="false" value="${rec.requirement}"/></td>
                                                             <td><c:out escapeXml="false" value="${rec.interest}"/></td>
                                                             <!--<td><a href="recruitment/<c:out value="${rec.id}"/>">Edit</a></td>-->
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${rec.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${rec.id}" value="XÓA"></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

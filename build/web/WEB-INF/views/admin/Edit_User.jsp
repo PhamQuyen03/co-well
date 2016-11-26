@@ -22,14 +22,14 @@
     });
 </script>
 
-<form style="width: 600px; margin-left: 150px;" method="post" action="http://localhost:8084/baitap/User/edit">
+<form style="width: 600px; margin-left: 150px;" method="post" action="http://localhost:8084/co-well/User/edit">
 
     <!--<div class="form-group" hidden="true">-->
 
     <input class="form-control" name="userid" value="${requestScope.edit_user.id}" type="hidden">
     <!--</div>-->
     <div class="form-group">
-        <label>Username</label>
+        <label>TÊN NGƯỜI DÙNG</label>
         <input class="form-control" name="Username_edit" placeholder="Enter Username" value="${requestScope.edit_user.name}">
     </div>
     <div class="form-group">
@@ -37,11 +37,11 @@
         <input class="form-control" type="email" name="email_edit" placeholder="Enter Username" value="${requestScope.edit_user.email}">
     </div>
     <div class="form-group">
-        <label>Password</label>
+        <label>MẬT KHẨU</label>
         <input class="form-control" name="Password_edit" placeholder="Enter Password" value="${requestScope.edit_user.password}">
     </div>
     <div style="">
-        <label>Role</label> : 
+        <label>PHÂN QUYỀN</label> : 
         <select name="Role_edit">
             <option value="1">Admin</option>
             <option value="2">Support</option>

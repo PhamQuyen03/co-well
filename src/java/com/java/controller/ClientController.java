@@ -5,17 +5,22 @@
  */
 package com.java.controller;
 
+import com.java.dao.ContactDAO;
 import com.java.dao.NewsDAO;
 import com.java.dao.RecruitmentDAO;
+import com.java.dao.SlideDAO;
 import com.java.model.News;
 import com.java.model.Recruitment;
+import com.java.model.Slide;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import jdk.nashorn.internal.parser.TokenType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -26,13 +31,17 @@ public class ClientController {
 
     NewsDAO dbNews = new NewsDAO();
     RecruitmentDAO dbRecruitment = new RecruitmentDAO();
+    ContactDAO dbContact = new ContactDAO();
+    SlideDAO dbSlide = new SlideDAO();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String started(Model model, HttpServletRequest request) {
         List<Recruitment> recIndex = dbRecruitment.paginationWaited(0, 5);
         List<News> newsIndex = dbNews.paginationWaited(0, 3);
+        List<Slide> slide = dbSlide.getList(0, 3);
         model.addAttribute("newsIndex", newsIndex);
         model.addAttribute("recIndex", recIndex);
+        model.addAttribute("slide", slide);
 //        user active
 //        System.out.println("test : "+request.getSession().getServletContext().getAttribute("userActive"));
         return "client/index";
@@ -43,10 +52,10 @@ public class ClientController {
 
         List<Recruitment> recIndex = dbRecruitment.paginationWaited(0, 5);
         List<News> newsIndex = dbNews.paginationWaited(0, 3);
+        List<Slide> slide = dbSlide.getList(0, 3);
         model.addAttribute("newsIndex", newsIndex);
         model.addAttribute("recIndex", recIndex);
-//        user active
-//        System.out.println("test : "+request.getSession().getServletContext().getAttribute("userActive"));
+        model.addAttribute("slide", slide);
         return "client/index";
     }
 
@@ -147,4 +156,23 @@ public class ClientController {
     public String showSI(Model model) {
         return "client/SystemIntegration";
     }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String showContact(Model model) {
+        return "client/Contact";
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String addContact(Model model, @RequestParam("name") String name, @RequestParam("company") String company, @RequestParam("phone") String phone, @RequestParam("email") String email, @RequestParam("position") String branch, @RequestParam("aboutme") String content) {
+        if (!name.trim().equals("") && !email.trim().equals("") &&!phone.trim().equals("")&& !name.trim().equals("") && dbContact.insert(name, company, email, phone, branch, content)) {
+            
+            return "redirect:/index";
+        }
+        return "redirect:/ErrorPage";
+    }
+        @RequestMapping(value = "/ErrorPage", method = RequestMethod.GET)
+    public String displayError(Model model) {
+        return "client/Error";
+    }
+
 }

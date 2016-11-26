@@ -14,63 +14,29 @@
             <div class="wauto">
                 <div class="swiper-container swiper-container-horizontal">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide mrow slide3 swiper-slide-duplicate" data-swiper-slide-index="2">
-                            <a href="outsourcing" title="Outsourcing                  ">
-                                <img src="resources/clients/images/pc20160616_150621.png" alt="Outsourcing">
-                            </a>
-                        </div>
-                        <div class="swiper-slide mrow slide1" data-swiper-slide-index="0">
-                            <a href="consulting" title="Tư vấn chiến lược CNTT">
-                                <img src="resources/clients/images/pc20160615_163914.png" alt="Tư vấn chiến lược CNTT">
-                            </a>
-                        </div>
-                        <div class="swiper-slide mrow slide2 swiper-slide-prev" data-swiper-slide-index="1">
-                            <a href="system-integration" title="Tích hợp hệ thống">
-                                <img src="resources/clients/images/pc20160616_150533.png" alt="Tích hợp hệ thống">
-                            </a>
-                        </div>
-                        <div class="swiper-slide mrow slide3 swiper-slide-active" data-swiper-slide-index="2">
-                            <a href="outsourcing" title="Outsourcing                  ">
-                                <img src="resources/clients/images/pc20160616_150621.png" alt="Outsourcing                  ">
-                            </a>
-                        </div>
-                        <div class="swiper-slide mrow slide1 swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0">
-                            <a href="consulting" title="Tư vấn chiến lược CNTT">
-                                <img src="resources/clients/images/pc20160615_163914.png" alt="Tư vấn chiến lược CNTT">
-                            </a>
-                        </div>
+                        <c:forEach items="${requestScope.slide}" var="slide">
+                            <div class="swiper-slide mrow slide">
+                                <a href="${slide.url}" title="${slide.name}">
+                                    <img src="${slide.img}" alt="${slide.name}">
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
                     <div class="swiper-pagination swiper-pagination-clickable"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
                 </div>
                 <div class="service-menu textcenter">
                     <ul class="row">
-                        <li class="col col33 mcol100">
-                            <a href="consulting">
+                        <c:forEach items="${requestScope.slide}" var="slide">
+                            <li class="col col33 mcol100">
+                            <a href="${slide.url}">
                                 <div class="imain">
-                                    <img src="resources/clients/images/pc20160526_233955.png" alt="Tư vấn chiến lược CNTT" class="hidesm">
-                                    <img src="resources/clients/images/mb20160526_233922.png" alt="Tư vấn chiến lược CNTT" class="hidepc">
-                                    <span class="fontbold">Tư vấn chiến lược CNTT</span>
+                                    <img src="${slide.img1}" alt="${slide.name}" class="hidesm">
+                                    <!--<img src="resources/clients/images/mb20160526_233922.png" alt="Tư vấn chiến lược CNTT" class="hidepc">-->
+                                    <span class="fontbold">${slide.name}</span>
                                 </div>
                             </a>
                         </li>
-                        <li class="col col33 mcol100">
-                            <a href="system-integration">
-                                <div class="imain">
-                                    <img src="resources/clients/images/pc20160526_234049.png" alt="Tích hợp hệ thống" class="hidesm">
-                                    <img src="resources/clients/images/mb20160526_234049.png" alt="Tích hợp hệ thống" class="hidepc">
-                                    <span class="fontbold">Tích hợp hệ thống</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col col33 mcol100">
-                            <a href="outsourcing">
-                                <div class="imain">
-                                    <img src="resources/clients/images/pc20160526_233822.png" alt="Outsourcing" class="hidesm">
-                                    <img src="resources/clients/images/mb20160526_233822.png" alt="Outsourcing" class="hidepc">
-                                    <span class="fontbold">Outsourcing</span>
-                                </div>
-                            </a>
-                        </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
@@ -85,7 +51,7 @@
                         <c:forEach items="${requestScope.recIndex}" var="recIndex">
                             <li class="col col50 mcol100">
                                 <h3>
-                                    <a title="Web Designer" href="http://localhost:8084/baitap/recruitment/<c:out value="${recIndex.id}"></c:out>" class="title-urgent">
+                                    <a title="Web Designer" href="http://localhost:8084/co-well/recruitment/<c:out value="${recIndex.id}"></c:out>" class="title-urgent">
                                         <c:out value="${recIndex.name}"></c:out>
                                             <span class="urgent">Urgent</span></a>
                                     </h3>
@@ -94,11 +60,11 @@
                                     <span class="pleft exp"><c:out value="${recIndex.end_recruitment}"></c:out></span>
                                     </div>
                                     <p>
-                                        <c:out escapeXml="false" value="${recIndex.summary}"></c:out>
-                                </p>
-                                <div class="tags">
-                                </div>
-                            </li>
+                                    <c:out escapeXml="false" value="${recIndex.summary}"></c:out>
+                                    </p>
+                                    <div class="tags">
+                                    </div>
+                                </li>
                         </c:forEach>
 
 
@@ -138,7 +104,7 @@
                                         </span>
                                     </c:if>
                                     <h4> 
-                                        <a href="http://localhost:8084/baitap/news/<c:out value="${news.id}"></c:out>" title="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;">
+                                        <a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" title="Thông báo về việc chính thức đổi tên thương mại sang &quot;CO-WELL Châu Á&quot;">
                                             <c:out value="${news.title}"></c:out>
                                             </a>
                                         </h4>

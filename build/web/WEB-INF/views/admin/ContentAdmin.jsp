@@ -14,8 +14,8 @@
         <td><c:out value="${user.password}"/> </td>
         <td><c:out value="${user.role}"/> </td>
         <td><c:out value="${user.id}"/> </td>
-        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">EDIT</button></td>
-        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="DELETE"></td>
+        <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${user.id}">SỬA</button></td>
+        <td><input class="deleteRow btn btn-danger" type="submit" data-id="${user.id}" value="XÓA"></td>
     </tr>
 </c:forEach>
 

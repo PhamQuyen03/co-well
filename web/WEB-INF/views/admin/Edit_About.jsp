@@ -21,7 +21,7 @@
     });
 </script>
 <div class="panel-body">
-    <form method="post" action="http://localhost:8084/baitap/support/about/edit">
+    <form method="post" action="http://localhost:8084/co-well/support/about/edit">
         <input class="form-control" name="id" value="${requestScope.aboutEdit.id}" type="hidden" >
         <div class="form-group">
             <label style="font-size:  15pt; align-content: center;">Tiêu Đề</label>
@@ -38,8 +38,14 @@
                 <label>Ngày Sửa</label>: <input style="margin-left: 22px" type="date" value="${requestScope.aboutEdit.update_at}" name="update_atAbout"/><br><br>
                 <label>Trạng Thái</label> : 
                 <select style="margin-left: 10px" name="statusAbout">
-                    <option value="2">Đợi</option>
-                    <option value="1">Đăng</option>
+                    <c:forEach items="${requestScope.status}" var="status">
+                        <c:if test="${status.id == requestScope.aboutEdit.status}">
+                            <option selected="selected" value="${status.id}">${status.name}</option>
+                        </c:if>
+                        <c:if test="${status.id != requestScope.aboutEdit.status}">
+                            <option value="${status.id}">${status.name}</option>
+                        </c:if>
+                    </c:forEach>
                 </select><br>
             </div>
             <br>

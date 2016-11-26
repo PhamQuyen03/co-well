@@ -32,7 +32,7 @@
                                     <h4 class="modal-title">TẠO TIN TỨC MỚI</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post" action="http://localhost:8084/baitap/support">
+                                    <form method="post" action="http://localhost:8084/co-well/support">
                                         <div class="form-group">
                                             <label style="font-size:  15pt; align-content: center;">Tiêu Đề</label>
                                             <input class="form-control" name="title" type="text" style="text-align: center;font-size: 15pt;width: 600px">
@@ -46,11 +46,11 @@
                                             <textarea class="myTextarea" name="contents"></textarea>
                                         </div><br>
                                         <div class="form-group">
-                                            <label style="font-size:  15pt; align-content: center;">Image</label>
+                                            <label style="font-size:  15pt; align-content: center;">ẢNH</label>
                                             <input class="form-control" name="img" type="text" style="text-align: center;font-size: 15pt;width: 400px">
                                         </div><br>
                                         <div class="form-group">
-                                            <label style="font-size:  15pt; align-content: center;">Author</label>
+                                            <label style="font-size:  15pt; align-content: center;">TÁC GIẢ</label>
                                             <input class="form-control" name="author" type="text" style="text-align: center;font-size: 15pt;width: 200px">
                                         </div><br>
                                         <div style="left: 630px; position: absolute;top: 120px; width: 300px">
@@ -104,11 +104,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="text-align: center">ID</th>
-                                                        <th style="text-align: center">TITLE</th>
-                                                        <th style="text-align: center">DESCRIPTION</th>
-                                                        <th style="text-align: center">CONTENT</th>
-                                                        <th style="text-align: center" >EDIT</th>
-                                                        <th style="text-align: center" >DELETE</th>
+                                                        <th style="text-align: center">TIÊU ĐỀ</th>
+                                                        <th style="text-align: center">MÔ TẢ</th>
+                                                        <th style="text-align: center">NỘI DUNG</th>
+                                                        <th style="text-align: center" >SỬA</th>
+                                                        <th style="text-align: center" >XÓA</th>
 
                                                     </tr>
                                                 </thead>
@@ -120,8 +120,8 @@
                                                             <td><c:out value="${ns.description}"/></td>
                                                             <td><c:out escapeXml="false" value="${ns.contents}"/></td>
                                                             <!--<td><a href="support/<c:out value="${ns.id}"/>">Edit</a></td>-->
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="XÓA"></td>
 
                                                         </tr>
                                                     </c:forEach>
@@ -144,11 +144,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="text-align: center">ID</th>
-                                                        <th style="text-align: center">TITLE</th>
-                                                        <th style="text-align: center">DESCRIPTION</th>
-                                                        <th style="text-align: center">CONTENT</th>
-                                                        <th style="text-align: center" >EDIT</th>
-                                                        <th style="text-align: center" >DELETE</th>
+                                                        <th style="text-align: center">TIÊU ĐỀ</th>
+                                                        <th style="text-align: center">MÔ TAT</th>
+                                                        <th style="text-align: center">NỘI DUNG</th>
+                                                        <th style="text-align: center" >SỬA</th>
+                                                        <th style="text-align: center" >XÓA</th>
 
                                                     </tr>
                                                 </thead>
@@ -160,8 +160,8 @@
                                                             <td><c:out escapeXml="false" value="${ns.description}"/></td>
                                                             <td><c:out escapeXml="false" value="${ns.contents}"/></td>
                                                             <!--<td><a href="support/<c:out value="${ns.id}"/>">Edit</a></td>-->
-                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">EDIT</button></td>
-                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="DELETE"></td>
+                                                            <td><button type="button" class="eitdRow btn btn-info" data-toggle="modal" data-target="#editModal" data-id="${ns.id}">SỬA</button></td>
+                                                            <td><input class="deleteRow btn btn-danger" type="submit" data-id="${ns.id}" value="XÓA"></td>
                                                         </tr>
                                                     </c:forEach>
 

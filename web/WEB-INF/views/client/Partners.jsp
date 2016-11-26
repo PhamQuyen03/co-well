@@ -17,27 +17,27 @@
                     <div class="customerbg">
                         <div class="swiper-container swiper-container-horizontal">
                             <div class="swiper-wrapper" style="transform: translate3d(-508.089px, 0px, 0px); transition-duration: 0ms;"><a href="http://www.co-well.vn/partners#partner-2" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
-                                </a><a href="http://localhost:8084/baitap/partners#partner-1" class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
-                                </a><a href="http://localhost:8084/baitap/partners#partner-5" class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
+                                    <img src="/co-well/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
+                                </a><a href="http://localhost:8084/co-well/partners#partner-1" class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
+                                </a><a href="http://localhost:8084/co-well/partners#partner-5" class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
                                 </a>
-                                <a href="http://localhost:8084/baitap/partners#partner-2" class="swiper-slide swiper-slide-next" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
+                                <a href="http://localhost:8084/co-well/partners#partner-2" class="swiper-slide swiper-slide-next" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
                                 </a>
-                                <a href="http://localhost:8084/baitap/partners#partner-1" class="swiper-slide" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
+                                <a href="http://localhost:8084/co-well/partners#partner-1" class="swiper-slide" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
                                 </a>
-                                <a href="http://localhost:8084/baitap/partners#partner-5" class="swiper-slide" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
+                                <a href="http://localhost:8084/co-well/partners#partner-5" class="swiper-slide" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
                                 </a>
-                                <a href="http://localhost:8084/baitap/partners#partner-2" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
-                                </a><a href="http://localhost:8084/baitap/partners#partner-1" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
-                                </a><a href="http://localhost:8084/baitap/partners#partner-5" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
-                                    <img src="/baitap/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
+                                <a href="http://localhost:8084/co-well/partners#partner-2" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
+                                </a><a href="http://localhost:8084/co-well/partners#partner-1" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225838.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
+                                </a><a href="http://localhost:8084/co-well/partners#partner-5" class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 152.911px; margin-right: 101.133px;">
+                                    <img src="/co-well/resources/clients/images/slider20160603_225709.png" alt="CÔNG TY USAMI KOYUU">
                                 </a></div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <div class="row">
                                 <div class="col col22 logo-client mcol100">
                                     <a href="http://www.co-well.vn/partners/detail/cong-ty-gulliver-international">
-                                        <img src="/baitap/resources/clients/images/logo20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
+                                        <img src="/co-well/resources/clients/images/logo20160524_221127.png" alt="CÔNG TY GULLIVER INTERNATIONAL">
                                     </a>
                                 </div>
                                 <!--Begin informationsatff-->
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col col22 logo-client mcol100">
                                     <a href="http://www.co-well.vn/partners/detail/cong-ty-gdo-golf-digest-online-inc">
-                                        <img src="/baitap/resources/clients/images/logo20160701_105653.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
+                                        <img src="/co-well/resources/clients/images/logo20160701_105653.png" alt="CÔNG TY GDO (GOLF DIGEST ONLINE INC)">
                                     </a>
                                 </div>
                                 <!--Begin informationsatff-->
@@ -111,7 +111,7 @@
                             <div class="row">
                                 <div class="col col22 logo-client mcol100">
                                     <a href="http://www.co-well.vn/partners/detail/cong-ty-usami-koyuu">
-                                        <img src="/baitap/resources/clients/images/logo20160524_221639.png" alt="CÔNG TY USAMI KOYUU">
+                                        <img src="/co-well/resources/clients/images/logo20160524_221639.png" alt="CÔNG TY USAMI KOYUU">
                                     </a>
                                 </div>
                                 <!--Begin informationsatff-->
