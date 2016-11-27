@@ -14,10 +14,10 @@
         <div class="wauto">
             <div class="boxsubpage sttpage">
                 <div class="requirements">
-                    <h3 class="recruittitle">Hãy gửi thông tin liên hệ cho chúng tôi theo bước sau:</h3>
+                    <h3 class="recruittitle">Hãy gửi thông tin liên hệ cho chúng tôi:</h3>
                     <form class="contact-action formstt" method="post" action="http://localhost:8084/co-well/contact">
                         <input type="hidden" name="_token" value="73YCxeOpn92JrrDsWKprzRH1cLHrPoV8DWmECDvC">
-                        <ul class="row">
+<!--                        <ul class="row">
                             <li class="col col33 mcol100 ">
                                 <div class="wpr active first">
                                     <b class="pleft">1</b>
@@ -36,7 +36,7 @@
                                     <span>Hoàn thành</span>
                                 </div>
                             </li>
-                        </ul>
+                        </ul>-->
 
                         <div class="form-group">
                             <div class="formlabel">
