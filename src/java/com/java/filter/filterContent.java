@@ -56,8 +56,12 @@ public class filterContent implements Filter {
         }
         else {
             User user = (User) obj;
-            if (path.startsWith("/co-well/login")) {
-                HttpServletResponse resp = (HttpServletResponse) response;
+            HttpServletResponse resp = (HttpServletResponse) response;
+            if(user.getRole() == 1 && path.startsWith("/co-well/support")){
+                resp.sendRedirect("admin");
+            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin")){
+                resp.sendRedirect("support");
+            }else if (path.startsWith("/co-well/login")) {
                 switch (user.getRole()) {
                     case 1:
                         resp.sendRedirect("admin");

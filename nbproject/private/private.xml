@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/class/java/co-well/web/WEB-INF/tags/header.tag</file>
             <file>file:/D:/class/java/co-well/src/java/com/java/controller/AdminController.java</file>
+            <file>file:/D:/class/java/co-well/src/java/com/java/filter/filterContent.java</file>
             <file>file:/D:/class/java/co-well/web/WEB-INF/views/admin/Edit_Profile.jsp</file>
             <file>file:/D:/class/java/co-well/web/WEB-INF/views/admin/Manager.jsp</file>
             <file>file:/D:/class/java/co-well/web/WEB-INF/views/admin/Profile.jsp</file>
