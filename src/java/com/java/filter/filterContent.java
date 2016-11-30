@@ -50,27 +50,29 @@ public class filterContent implements Filter {
                 chain.doFilter(request, response);
 
             } else {
-                RequestDispatcher patch = request.getRequestDispatcher("/WEB-INF/views/admin/login_Admin.jsp");
-                patch.forward(request, response);
+                HttpServletResponse resp = (HttpServletResponse) response;
+                resp.sendRedirect("http://localhost:8084/co-well/login");
+//                RequestDispatcher patch = request.getRequestDispatcher("/WEB-INF/views/admin/login_Admin.jsp");
+//                patch.forward(request, response);
             }
         }
         else {
             User user = (User) obj;
             HttpServletResponse resp = (HttpServletResponse) response;
-            if(user.getRole() == 1 && path.startsWith("/co-well/support")){
-                resp.sendRedirect("admin");
-            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin")){
-                resp.sendRedirect("support");
+            if(user.getRole() == 1 && path.startsWith("/co-well/support/")){
+                resp.sendRedirect("http://localhost:8084/co-well/admin");
+            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin/")){
+                resp.sendRedirect("http://localhost:8084/co-well/support");
             }else if (path.startsWith("/co-well/login")) {
                 switch (user.getRole()) {
                     case 1:
-                        resp.sendRedirect("admin");
+                        resp.sendRedirect("http://localhost:8084/co-well/admin");
                         break;
                     case 2:
-                        resp.sendRedirect("support");
+                        resp.sendRedirect("http://localhost:8084/co-well/support");
                         break;
                     default:
-                        resp.sendRedirect("support");
+                        resp.sendRedirect("http://localhost:8084/co-well/support");
                         break;
                 }
             } else {
