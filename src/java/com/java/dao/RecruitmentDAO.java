@@ -26,6 +26,7 @@ public class RecruitmentDAO {
 
         List<Recruitment> recruitments = new ArrayList<>();
         try {
+//            CONNECT DB
             Connection con = ConnectDB.Connected();
             Statement stt = con.createStatement();
             String sql = "SELECT * FROM Recruitments ORDER BY ID DESC";
