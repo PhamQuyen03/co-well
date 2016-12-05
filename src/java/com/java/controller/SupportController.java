@@ -31,7 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author tuong
  */
 @Controller
-public class HomeController {
+public class SupportController {
 
     NewsDAO spNews = new NewsDAO();
     RecruitmentDAO spRecs = new RecruitmentDAO();

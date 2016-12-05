@@ -14,7 +14,6 @@ import com.java.model.Recruitment;
 import com.java.model.Slide;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import jdk.nashorn.internal.parser.TokenType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

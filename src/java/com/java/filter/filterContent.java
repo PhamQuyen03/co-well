@@ -10,7 +10,6 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -59,9 +58,9 @@ public class filterContent implements Filter {
         else {
             User user = (User) obj;
             HttpServletResponse resp = (HttpServletResponse) response;
-            if(user.getRole() == 1 && path.startsWith("/co-well/support/")){
+            if(user.getRole() == 1 && path.startsWith("/co-well/support")){
                 resp.sendRedirect("http://localhost:8084/co-well/admin");
-            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin/")){
+            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin")){
                 resp.sendRedirect("http://localhost:8084/co-well/support");
             }else if (path.startsWith("/co-well/login")) {
                 switch (user.getRole()) {
