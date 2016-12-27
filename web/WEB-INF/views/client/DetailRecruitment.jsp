@@ -37,14 +37,14 @@
 
                                     </div>
                                 </div>
-                                <div class="col col50 mcol100">
+<!--                                <div class="col col50 mcol100">
                                     <div class="fromsubmit textcenter">
                                         <a href="http://www.co-well.vn/recruitments/apply/49" class="btnsubmit" title="Ứng tuyển ngay">Ứng tuyển ngay</a>
                                         <a class="btnsubmit btn2" href="http://www.co-well.vn/recruitments" title="Xem tất cả">Xem tất cả</a>
                                     </div>
                                     <div class="joblist">
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="more_recruit">
@@ -105,11 +105,11 @@
                             <div class="sidebarbox">
 
                                 <!--Begin sidebarrecruit-->
-                                <div class="sidebarrecruit hidesm">
+<!--                                <div class="sidebarrecruit hidesm">
                                     <a href="http://co-well.vn/recruitments/apply">
                                         <img src="./Lập trình viên Perl - CO-WELL Asia_files/pc20160615_153235.jpg" alt="apply now" width="303" height="357">
                                     </a>
-                                </div>      <!--End sidebarrecruit-->
+                                </div>      End sidebarrecruit-->
                             </div>
                         </aside>
                         <!--End sidebar-->

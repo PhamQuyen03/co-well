@@ -63,7 +63,7 @@
                                 <c:forEach items="${requestScope.searchRec}" var="rec">
                                     <li class="col col100 mcol100">
                                         <div class="pleft col74 mcol100">
-                                            <h3><a class="" title="${rec.name} href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
+                                            <h3><a class="" title="${rec.name}" href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
                                                    <c:out value="${rec.name}"></c:out>
                                                        <i class="expired"></i>
                                                    </a></h3>
@@ -112,11 +112,11 @@
                         </div>
                         <!--End latestnews-->
                         <!--Begin sidebarrecruit-->
-                        <div class="sidebarrecruit hidesm">
+<!--                        <div class="sidebarrecruit hidesm">
                             <a href="http://co-well.vn/recruitments/apply">
                                 <img src="./Tuyển dụng - CO-WELL Asia_files/pc20160615_153235.jpg" alt="apply now" width="303" height="357">
                             </a>
-                        </div>        <!--End sidebarrecruit-->
+                        </div>        End sidebarrecruit-->
                     </div>
                 </aside>
                 <!--End sidebar-->      
