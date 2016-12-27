@@ -5,10 +5,12 @@
  */
 package com.java.controller;
 
+import com.java.dao.CategoryRecDAO;
 import com.java.dao.ContactDAO;
 import com.java.dao.NewsDAO;
 import com.java.dao.RecruitmentDAO;
 import com.java.dao.SlideDAO;
+import com.java.model.CategoryRec;
 import com.java.model.News;
 import com.java.model.Recruitment;
 import com.java.model.Slide;
@@ -30,13 +32,14 @@ public class ClientController {
 
     NewsDAO dbNews = new NewsDAO();
     RecruitmentDAO dbRecruitment = new RecruitmentDAO();
+    CategoryRecDAO dbCateRec = new CategoryRecDAO();
     ContactDAO dbContact = new ContactDAO();
     SlideDAO dbSlide = new SlideDAO();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String started(Model model, HttpServletRequest request) {
-        List<Recruitment> recIndex = dbRecruitment.paginationWaited(0, 5);
-        List<News> newsIndex = dbNews.paginationWaited(0, 3);
+        List<Recruitment> recIndex = dbRecruitment.paginationPosted(0, 5);
+        List<News> newsIndex = dbNews.paginationPosted(0, 3);
         List<Slide> slide = dbSlide.getList(0, 3);
         model.addAttribute("newsIndex", newsIndex);
         model.addAttribute("recIndex", recIndex);
@@ -60,10 +63,15 @@ public class ClientController {
 
     @RequestMapping(value = "/news", method = RequestMethod.GET)
     public String getNews(Model model) {
-        List<News> list = dbNews.paginationWaited(0, 3);
-        List<News> new_list = dbNews.paginationWaited(0, 3);
-        List<News> lists = dbNews.getWaited();
-        int num = lists.size() / 3;
+        List<News> list = dbNews.paginationPosted(0, 3);
+        List<News> new_list = dbNews.paginationPosted(0, 3);
+        List<News> lists = dbNews.getPosted();
+        int num;
+        if (lists.size() % 3 == 0) {
+            num = lists.size() / 3;
+        } else {
+            num = lists.size() / 3 + 1;
+        }
         model.addAttribute("pageNews", list);
         model.addAttribute("new_list", new_list);
         model.addAttribute("numPage", num);
@@ -72,7 +80,7 @@ public class ClientController {
 
     @RequestMapping(value = "/news/{id}", method = RequestMethod.GET)
     public String detailNews(@PathVariable("id") int id, Model model) {
-        List<News> new_list = dbNews.paginationWaited(0, 3);
+        List<News> new_list = dbNews.paginationPosted(0, 3);
         News ns = new News();
         ns = dbNews.findById(id);
         List<News> category = dbNews.paginationCategory(ns.getId_category(), 0, 3);
@@ -84,9 +92,9 @@ public class ClientController {
 
     @RequestMapping(value = "/news/page/{page}", method = RequestMethod.GET)
     public String paginationNews(@PathVariable("page") int page, Model model) {
-        List<News> new_list = dbNews.paginationWaited(0, 3);
-        List<News> list = dbNews.paginationWaited((page - 1) * 3, (page - 1) * 3 + 3);
-        List<News> lists = dbNews.getWaited();
+        List<News> new_list = dbNews.paginationPosted(0, 3);
+        List<News> list = dbNews.paginationPosted((page - 1) * 3, (page - 1) * 3 + 3);
+        List<News> lists = dbNews.getPosted();
         int num;
         if (lists.size() % 3 == 0) {
             num = lists.size() / 3;
@@ -101,22 +109,24 @@ public class ClientController {
 
     @RequestMapping(value = "/recruitment", method = RequestMethod.GET)
     public String recruitment(Model model) {
-        List<Recruitment> list = dbRecruitment.paginationWaited(0, 3);
+        List<Recruitment> list = dbRecruitment.paginationPosted(0, 3);
+        List<CategoryRec> categoryRec = dbCateRec.getAll();
         int num;
-        if (dbRecruitment.getWaited().size() % 3 == 0) {
-            num = dbRecruitment.getWaited().size() / 3;
+        if (dbRecruitment.getPosted().size() % 3 == 0) {
+            num = dbRecruitment.getPosted().size() / 3;
         } else {
-            num = dbRecruitment.getWaited().size() / 3 + 1;
+            num = dbRecruitment.getPosted().size() / 3 + 1;
         }
         model.addAttribute("clientRec", list);
         model.addAttribute("numRec", num);
+        model.addAttribute("categoryRec", categoryRec);
         return "client/Recruitment";
     }
 
     @RequestMapping(value = "/recruitment/{id}", method = RequestMethod.GET)
     public String detailRec(Model model, @PathVariable("id") int id) {
         Recruitment rc = dbRecruitment.findId(id);
-        List<Recruitment> list = dbRecruitment.paginationWaited(0, 3);
+        List<Recruitment> list = dbRecruitment.paginationPosted(0, 3);
         model.addAttribute("clientRecDetail", rc);
         model.addAttribute("listRecDetail", list);
         return "client/DetailRecruitment";
@@ -124,7 +134,8 @@ public class ClientController {
 
     @RequestMapping(value = "/recruitment/page/{page}", method = RequestMethod.GET)
     public String paginationRec(@PathVariable("page") int page, Model model) {
-        List<Recruitment> list = dbRecruitment.paginationWaited((page - 1) * 3, (page - 1) * 3 + 3);
+        List<CategoryRec> categoryRec = dbCateRec.getAll();
+        List<Recruitment> list = dbRecruitment.paginationPosted((page - 1) * 3, (page - 1) * 3 + 3);
         int num;
         if (dbRecruitment.getWaited().size() % 3 == 0) {
             num = dbRecruitment.getWaited().size() / 3;
@@ -133,6 +144,30 @@ public class ClientController {
         }
         model.addAttribute("clientRec", list);
         model.addAttribute("numRec", num);
+        model.addAttribute("categoryRec", categoryRec);
+        return "client/Recruitment";
+    }
+
+    @RequestMapping(value = "/recruitment", method = RequestMethod.POST)
+    public String serach(Model model, @RequestParam("job_title") String title, @RequestParam("job_category") String job) {
+        List<CategoryRec> categoryRec = dbCateRec.getAll();
+        if (job.equals("all")) {
+            List<Recruitment> list = dbRecruitment.paginationPosted(0, 3);
+            int num;
+            if (dbRecruitment.getWaited().size() % 3 == 0) {
+                num = dbRecruitment.getWaited().size() / 3;
+            } else {
+                num = dbRecruitment.getWaited().size() / 3 + 1;
+            }
+            model.addAttribute("clientRec", list);
+            model.addAttribute("numRec", num);
+        } else {
+            int id_category = Integer.parseInt(job);
+            List<Recruitment> search = dbRecruitment.search(id_category, "");
+            model.addAttribute("id_category", id_category);
+            model.addAttribute("searchRec", search);
+        }
+        model.addAttribute("categoryRec", categoryRec);
         return "client/Recruitment";
     }
 
@@ -163,13 +198,14 @@ public class ClientController {
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
     public String addContact(Model model, @RequestParam("name") String name, @RequestParam("company") String company, @RequestParam("phone") String phone, @RequestParam("email") String email, @RequestParam("position") String branch, @RequestParam("aboutme") String content) {
-        if (!name.trim().equals("") && !email.trim().equals("") &&!phone.trim().equals("")&& !name.trim().equals("") && dbContact.insert(name, company, email, phone, branch, content)) {
-            
+        if (!name.trim().equals("") && !email.trim().equals("") && !phone.trim().equals("") && !name.trim().equals("") && dbContact.insert(name, company, email, phone, branch, content)) {
+
             return "redirect:/index";
         }
         return "redirect:/ErrorPage";
     }
-        @RequestMapping(value = "/ErrorPage", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/ErrorPage", method = RequestMethod.GET)
     public String displayError(Model model) {
         return "client/Error";
     }

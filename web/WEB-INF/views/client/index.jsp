@@ -115,7 +115,7 @@
                                             <c:out value="${news.description}"></c:out>
                                             </p>
                                         </article>
-                                        <a href="http://co-well.vn/news/detail/thong-bao-ve-viec-chinh-thuc-doi-ten-thuong-mai-sang" class="more fontbold hidesm">Xem thêm</a>
+                                        <a href="http://localhost:8084/co-well/news/<c:out value="${news.id}"></c:out>" class="more fontbold hidesm">Xem thêm</a>
                                     </div>
                                 </div>
                             </li>
@@ -126,26 +126,26 @@
             </div>
             <div class="btecontent">
                 <div class="listnew mw100">
-                    <ul>
+<!--                    <ul>
                         <li style="background: #e04646"><a href="http://co-well.vn/category/thong-bao">
                                 Thông báo
                             </a>
                         </li>
-                        <!--                        <li style="background: #4884be"><a href="http://co-well.vn/category/bao-chi">
+                                                <li style="background: #4884be"><a href="http://co-well.vn/category/bao-chi">
                                                         Báo chí
                                                     </a>
-                                                </li>-->
+                                                </li>
                         <li style="background: #47b48d"><a href="http://co-well.vn/category/su-kien">
                                 Sự kiện
                             </a>
                         </li>
-                        <!--                        <li style="background: #eb9446"><a href="http://co-well.vn/category/hoat-dong">
+                                                <li style="background: #eb9446"><a href="http://co-well.vn/category/hoat-dong">
                                                         Hoạt động
                                                     </a>
-                                                </li>-->
-                    </ul>
+                                                </li>
+                    </ul>-->
                 </div>
-                <a href="http://co-well.vn/news" title="Xem tất cả" class="viewall textcenter">Xem tất cả</a>
+                <a href="http://localhost:8084/co-well/news" title="Xem tất cả" class="viewall textcenter">Xem tất cả</a>
             </div>
         </div>
         <div class="mobile_slide">
@@ -345,7 +345,7 @@
             <div class="wauto">
                 <h3>ĐỂ LẠI LỜI NHẮN <br> <span class="hidesm">CHO CO-WELL asia</span></h3>
                 <p>Bạn có nhu cầu tư vấn chiến lược CNTT hay gửi CV apply tuyển dụng, hãy để lại lời nhắn.</p>
-                <a href="http://co-well.vn/contact" class="btnsubmit">Gửi thông tin</a>
+                <a href="http://localhost:8084/co-well/contact" class="btnsubmit">Gửi thông tin</a>
             </div>
         </div>
     </section>

@@ -5,7 +5,6 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <script type="text/javascript">
     tinymce.init({
         selector: '.myTextarea',
@@ -40,6 +39,8 @@
         <div class="form-group">
             <label style="font-size:  15pt; align-content: center;">Ảnh</label>
             <input class="form-control" name="img" value="${requestScope.detail.img}" type="text" style="text-align: center;font-size: 15pt;width: 400px">
+            <!--<img src="" />-->
+            <img src="${requestScope.detail.img}" alt="" border=3 height=200 width=200 />
         </div><br>
         <div class="form-group">
             <label style="font-size:  15pt; align-content: center;">Tác Giả</label>
@@ -47,14 +48,15 @@
         </div><br>
         <div style="left: 630px; position: absolute;top: 200px; width: 300px">
             <div style="">
-                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" value="${requestScope.detail.create_at}" disabled/><br>
-                <label>Ngày Sửa</label>: <input style="margin-left: 22px" type="date" value="${requestScope.detail.update_at}" disabled/><br><br>
-                
+                <label>Ngày Tạo</label> : <input style="margin-left: 19px" type="date" name="create_at" value="${requestScope.detail.create_at}" /><br>
+                <label>Ngày Sửa</label>: <input style="margin-left: 22px" type="date" name="update_at" value="${requestScope.detail.update_at}" /><br><br>
+<!--                <input style="margin-left: 19px" type="hidden" name="create_at" value="${requestScope.detail.create_at}"/><br>
+                <input style="margin-left: 22px" type="hidden" name="update_at" value="${requestScope.today}" /><br><br>-->
                 <label>Thể Loại</label> : 
                 <select style="margin-left: 22px" name="id_category">
                     <c:forEach items="${requestScope.categoryNews}" var="categoryNews">
                         <c:if test="${categoryNews.id == requestScope.detail.id_category}">
-                            <option selected="selected" value="${stacategoryNewstus.id}">${categoryNews.name}</option>
+                            <option selected="selected" value="${requestScope.detail.id_category}">${categoryNews.name}</option>
                         </c:if>
                         <c:if test="${categoryNews.id != requestScope.detail.id_category}">
                             <option value="${categoryNews.id}">${categoryNews.name}</option>
@@ -75,9 +77,6 @@
             </div>
             <br>
             <input style="margin-left: 95px" type="submit" value="Sửa thông tin"/>
-            
-            <input style="margin-left: 19px" type="hidden" name="create_at" value="${requestScope.detail.create_at}"/><br>
-            <input style="margin-left: 22px" type="hidden" name="update_at" value="${requestScope.today}" /><br><br>
         </div>
     </form>
 </div>

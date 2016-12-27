@@ -51,7 +51,7 @@
                                         </div><br>
                                         <div class="form-group">
                                             <label style="font-size:  15pt; align-content: center;">TÁC GIẢ</label>
-                                            <input class="form-control" name="author" type="text" style="text-align: center;font-size: 15pt;width: 200px">
+                                            <input class="form-control" name="author" value="<c:out value="${sessionScope.userSession.name}"></c:out>" type="text" style="text-align: center;font-size: 15pt;width: 200px">
                                         </div><br>
                                         <div style="left: 630px; position: absolute;top: 120px; width: 300px">
                                             <div style="">

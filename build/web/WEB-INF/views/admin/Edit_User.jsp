@@ -43,8 +43,13 @@
     <div style="">
         <label>PHÂN QUYỀN</label> : 
         <select name="Role_edit">
-            <option value="1">Admin</option>
+            <c:if test="${requestScope.edit_user.role == 1}">
+                <option value="1">Admin</option>
+            </c:if>
             <option value="2">Support</option>
+            <c:if test="${requestScope.edit_user.role == 2}">
+                <option value="1">Admin</option>
+            </c:if>
         </select><br>
     </div>
     <br><br>

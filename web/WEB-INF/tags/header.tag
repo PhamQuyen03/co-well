@@ -52,7 +52,7 @@
                         <a href="http://localhost:8084/co-well/admin"><i class="fa fa-pencil-square-o"></i> Quản Trị</a>
                     </li>
                 </c:if>
-                <c:if test="${sessionScope.userSession.role == 2}">
+                
                     <li>
                         <a href="#"><i class="fa fa-files-o fa-fw"></i> Quản Trị 2<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -68,7 +68,7 @@
 
                         </ul>
                     </li>
-                </c:if>
+                
 
 
             </ul>

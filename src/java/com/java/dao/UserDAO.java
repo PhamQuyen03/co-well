@@ -10,6 +10,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +21,54 @@ import java.sql.Statement;
  */
 public class UserDAO {
 
-    public User check(String email, String pass) {
+    public List<User> getAll() {
+
+        List<User> users = new ArrayList<>();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Users ORDER BY ID DESC");
+            while (rs.next()) {
+                String email = rs.getString("email");
+                String pass = rs.getString("password");
+                String name = rs.getString("name");
+                int role = rs.getInt("role");
+                int id = rs.getInt("id");
+                User user = new User(name, pass, email, role, id);
+                users.add(user);
+
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return users;
+    }
+
+    public List<User> paginationList(int first, int num) {
+        List<User> users = new ArrayList<>();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stmt = con.createStatement();
+            String sql1 = "SELECT * FROM Users ORDER BY ID DESC OFFSET " + first + " ROWS FETCH NEXT " + num + " ROWS ONLY";
+            String sql2 = "SELECT * FROM USERS ORDER BY ID DESC";
+            ResultSet rs = stmt.executeQuery(sql1);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String pass = rs.getString("password");
+                int role = rs.getInt("role");
+                int id = rs.getInt("ID");
+                User user = new User(name, pass, email, role, id);
+                users.add(user);
+
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return users;
+    }
+
+    public User login(String email, String pass) {
 
         User user = new User();
         try {
@@ -37,5 +88,98 @@ public class UserDAO {
             ex.getStackTrace();
         }
         return user;
+    }
+
+    public User findUser(int id) {
+        User user = new User();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            String sql = "SELECT * FROM USERS WHERE ID = " + id;
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String pass = rs.getString("password");
+                String email = rs.getString("email");
+                int role = rs.getInt("role");
+                user = new User(name, pass, email, role, id);
+            }
+            con.close();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+
+    public boolean findUserByEmail(String email) {
+        User user = new User();
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            String sql = "SELECT * FROM USERS WHERE email = '" + email + "'";
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String pass = rs.getString("password");
+                int role = rs.getInt("role");
+                int id = rs.getInt("id");
+                user = new User(name, pass, email, role, id);
+            }
+            con.close();
+            return true;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean insertUser(String email, String password, String name, int role) {
+
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            if (!findUserByEmail(email)) {
+                String sql = "INSERT INTO Users " + "VALUES ('" + email + "', '" + password + "', N'" + name + "', " + role + ")";
+                stt.executeUpdate(sql);
+                con.close();
+                return true;
+            } else {
+                con.close();
+                return false;
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean updateUser(int id, String email, String password, String name, int role) {
+        try {
+            Connection Con = ConnectDB.Connected();
+            Statement stmt = Con.createStatement();
+            stmt.executeUpdate("UPDATE Users " + "SET email = N'" + email + "', password = N'" + password + "', name = N'" + name + "', ROLE = " + role + " WHERE ID = " + id);
+            Con.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean deleteUse(int id) {
+        try {
+            Connection con = ConnectDB.Connected();
+            Statement stt = con.createStatement();
+            String sql = "DELETE FROM Users WHERE ID = " + id;
+            stt.executeUpdate(sql);
+            con.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

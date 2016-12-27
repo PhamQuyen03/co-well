@@ -136,6 +136,17 @@ public class RecruitmentDAO {
         }
         return false;
     }
+    
+    public List<Recruitment> search(int id_category, String title) {
+        List<Recruitment> rec = new ArrayList<>();
+        RecruitmentDAO db = new RecruitmentDAO();
+        for (Recruitment item : db.getPosted()) {
+            if (item.getCategory()== id_category) {
+                rec.add(item);
+            }
+        }
+        return rec;
+    }
 
     public boolean delete(int id) {
         try {

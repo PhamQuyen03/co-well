@@ -51,7 +51,7 @@
     </context-param>
     <filter>
         <filter-name>ADLoginFilter</filter-name>
-        <filter-class>com.java.filter.filterContent</filter-class>
+        <filter-class>com.java.filter.filterRule</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>ADLoginFilter</filter-name>

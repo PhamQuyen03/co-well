@@ -26,42 +26,7 @@
                     <!--Begin contentnewslist-->
                     <div class="contentnewslist">
                         <ul class="morenewslist">
-                            <c:forEach items="${requestScope.clientNews}" var="news">
-                                <li>
-                                    <div class="row">
-                                        <div class="col col24 mcol100">
-                                            <a class="hidesm" href="news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
-                                                <img class="mcol100 " src="<c:out value="${news.img}"></c:out>" width="157" height="112" alt="<c:out value="${news.title}"></c:out>">
-                                                </a>
-                                                    <a class="hidepc" href="news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
-                                                <img class="mcol100 " src="<c:out value="${news.img}"></c:out>" width="570" height="240" alt="<c:out value="${news.title}"></c:out>">
-                                                </a>
-                                            </div>
-                                            <div class="col col75 mcol100">
-                                                <div class="newsmedia">
-                                                <c:if test="${news.id_category == 1}">
-                                                    <span style="background: #47b48d" class=" ebtn">
-                                                        Sự Kiện
-                                                    </span>
-                                                </c:if>
-                                                <c:if test="${news.id_category == 2}">
-                                                    <span style="background: #e04646" class=" ebtn">
-                                                        Thông báo
-                                                    </span>
-                                                </c:if>
-                                                <span class="time"><c:out value="${news.create_at}"></c:out></span>
-                                                <h4><a href="news/<c:out value="${news.id}"></c:out>" title="<c:out value="${news.title}"></c:out>">
-                                                        <c:out value="${news.title}"></c:out>
-                                                        </a>
-                                                    </h4>
-                                                    <article class="hidesm">
-                                                    <c:out value="${news.description}"></c:out>
-                                                    </article>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </c:forEach>
+                            
                             <c:forEach items="${requestScope.pageNews}" var="news">
                                 <li>
                                     <div class="row">

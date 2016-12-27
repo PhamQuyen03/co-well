@@ -13,15 +13,20 @@
             <div class="row boxsubpage">
                 <!--Begin contents-->
                 <article class="col col69 mcol100 contents">
-                    <form class="recruitment_form">
+                    <form class="recruitment_form" method="post" action="./recruitment">
 
-                        <input type="text" id="job_title" name="job_title" class="select-position nobg ui-autocomplete-input" placeholder="Nhập vị trí ứng tuyển" value="" autocomplete="off">
-                        <select class="select-time" name="job_time">
+                        <input type="text" id="job" name="job_title" class="select-position nobg ui-autocomplete-input" placeholder="Nhập vị trí ứng tuyển" value="" autocomplete="off">
+                        <select class="select-time" name="job_category">
                             <option value="all">- Tất cả -</option>
-                            <option value="1">1 tháng gần nhất</option>
-                            <option value="2">3 tháng gần nhất</option>
-                            <option value="3">6 tháng gần nhất</option>
-                            <option value="4">1 năm gần nhất</option>
+                            <c:forEach items="${requestScope.categoryRec}" var="categoryRec">
+                                <c:if test="${categoryRec.id == requestScope.id_category}">
+                                    <option selected="selected" value="${categoryRec.id}">- ${categoryRec.name} -</option>
+                                </c:if>
+                                <c:if test="${categoryRec.id != requestScope.id_category}">
+                                    <option value="${categoryRec.id}">- ${categoryRec.name} -</option>
+                                </c:if>
+
+                            </c:forEach>
                         </select>
                         <button class="btnselect">Tìm kiếm</button>
                     </form>
@@ -36,10 +41,32 @@
                                 <c:forEach items="${requestScope.clientRec}" var="rec">
                                     <li class="col col100 mcol100">
                                         <div class="pleft col74 mcol100">
-                                            <h3><a class="" title="Web Designer" href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
+                                            <h3><a class="" title="${rec.name}" href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
                                                     <c:out value="${rec.name}"></c:out>
                                                         <i class="expired"></i>
                                                     </a></h3>
+                                                <div class="w100 dates">
+                                                    <span class="pleft since">Ngày đăng: <c:out value="${rec.start_recruitment}"></c:out></span>
+                                                <span class="pleft exp">Hạn nộp: <c:out value="${rec.end_recruitment}"></c:out></span>
+                                                </div>
+                                                <p>
+                                                <c:out value="${rec.summary}"></c:out>
+
+                                                </p>
+                                                <div class="tags">
+                                                </div>
+                                            </div>
+                                            <div class="pright col25 hidesm avt">
+                                            </div>
+                                        </li>
+                                </c:forEach>
+                                <c:forEach items="${requestScope.searchRec}" var="rec">
+                                    <li class="col col100 mcol100">
+                                        <div class="pleft col74 mcol100">
+                                            <h3><a class="" title="${rec.name} href="http://localhost:8084/co-well/recruitment/<c:out value="${rec.id}"></c:out>">
+                                                   <c:out value="${rec.name}"></c:out>
+                                                       <i class="expired"></i>
+                                                   </a></h3>
                                                 <div class="w100 dates">
                                                     <span class="pleft since">Ngày đăng: <c:out value="${rec.start_recruitment}"></c:out></span>
                                                 <span class="pleft exp">Hạn nộp: <c:out value="${rec.end_recruitment}"></c:out></span>
@@ -61,7 +88,7 @@
                             <ul>
                                 <c:forEach begin="1" end="${requestScope.numRec}" var="i">
                                     <li><a href="http://localhost:8084/co-well/recruitment/page/<c:out value="${i}"></c:out>"><c:out value="${i}"></c:out></a>
-                                </c:forEach>
+                                    </c:forEach>
                             </ul>
                         </nav>
                     </div>

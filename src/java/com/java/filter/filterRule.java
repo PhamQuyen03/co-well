@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author tuong
  */
-public class filterContent implements Filter {
+public class filterRule implements Filter {
 
     @Override
     public void destroy() {
@@ -58,9 +58,9 @@ public class filterContent implements Filter {
         else {
             User user = (User) obj;
             HttpServletResponse resp = (HttpServletResponse) response;
-            if(user.getRole() == 1 && path.startsWith("/co-well/support")){
-                resp.sendRedirect("http://localhost:8084/co-well/admin");
-            } else if(user.getRole() == 2 && path.startsWith("/co-well/admin")){
+//            if(user.getRole() == 1 && path.startsWith("/co-well/support")){
+//                resp.sendRedirect("http://localhost:8084/co-well/admin");
+            if(user.getRole() == 2 && path.startsWith("/co-well/admin")){
                 resp.sendRedirect("http://localhost:8084/co-well/support");
             }else if (path.startsWith("/co-well/login")) {
                 switch (user.getRole()) {

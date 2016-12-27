@@ -85,8 +85,21 @@ public class SupportController {
     }
 //
 
+    @RequestMapping(value = "/support/news/edit", method = RequestMethod.GET)
+    public @ResponseBody
+    ModelAndView detailNews(@RequestParam("id") int id, Model model) {
+        CategoryNewsDAO spCategoryNews = new CategoryNewsDAO();
+        News news = spNews.findById(id);
+//        model.addAttribute("detail", news);
+        ModelAndView mc = new ModelAndView("admin/Edit_News", "detail", news);
+        model.addAttribute("status", spStatus.getAll());
+        model.addAttribute("categoryNews", spCategoryNews.getAll());
+        model.addAttribute("today", localDate);
+        return mc;
+    }
+
     @RequestMapping(value = "/support/news/edit", method = RequestMethod.POST)
-    public String updateNewsTest(@RequestParam("id") int id, @RequestParam("id_category") int id_category, @RequestParam("description") String des, @RequestParam("title") String title, @RequestParam("contents") String content,
+    public String updateNews(@RequestParam("id") int id, @RequestParam("id_category") int id_category, @RequestParam("description") String des, @RequestParam("title") String title, @RequestParam("contents") String content,
             @RequestParam("img") String img, @RequestParam("author") String author, @RequestParam("create_at") Date create_at, @RequestParam("update_at") Date update_at,
             @RequestParam("status") int status, Model model) {
 
@@ -96,19 +109,6 @@ public class SupportController {
         model.addAttribute("status", spStatus.getAll());
         model.addAttribute("today", localDate);
         return "redirect:/support";
-    }
-
-    @RequestMapping(value = "/support/news/edit", method = RequestMethod.GET)
-    public @ResponseBody
-    ModelAndView detailNewsTest(@RequestParam("id") int id, Model model) {
-        CategoryNewsDAO spCategoryNews = new CategoryNewsDAO();
-        News news = spNews.findById(id);
-//        model.addAttribute("detail", news);
-        ModelAndView mc = new ModelAndView("admin/Edit_News", "detail", news);
-        model.addAttribute("status", spStatus.getAll());
-        model.addAttribute("categoryNews", spCategoryNews.getAll());
-        model.addAttribute("today", localDate);
-        return mc;
     }
 
     @RequestMapping(value = "/support/news", method = RequestMethod.GET)

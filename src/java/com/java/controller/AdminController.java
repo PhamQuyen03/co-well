@@ -6,6 +6,7 @@
 package com.java.controller;
 
 import com.java.dao.AdminDAO;
+import com.java.dao.UserDAO;
 import com.java.model.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 
-    AdminDAO ad = new AdminDAO();
+    UserDAO ad = new UserDAO();
     LocalDate localDate = LocalDate.now();
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
